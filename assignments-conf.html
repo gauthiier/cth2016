@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CTH-2016 / Assignments Configuration</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="style/html5.css">
+</head>
+<body>
+<content>
+<header>
+<h1 class="title">CTH-2016 / Assignments Configuration</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#initialising-your-assignments-directory">Initialising your assignments directory</a><ul>
+<li><a href="#git-init">git init</a></li>
+<li><a href="#git-add">git add</a></li>
+<li><a href="#git-commit">git commit</a></li>
+<li><a href="#github">github</a></li>
+<li><a href="#git-push">git push</a></li>
+</ul></li>
+<li><a href="#creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</a><ul>
+<li><a href="#assignment-x">assignment-x</a></li>
+<li><a href="#npm-init">npm init</a></li>
+<li><a href="#npm-install---save-commander">npm install --save commander</a></li>
+<li><a href="#index.js">index.js</a></li>
+<li><a href="#readme">README</a></li>
+<li><a href="#git-add-1">git add</a></li>
+<li><a href="#git-commit-1">git commit</a></li>
+<li><a href="#git-push-1">git push</a></li>
+</ul></li>
+<li><a href="#external-resources">External Resources</a></li>
+</ul>
+</nav>
+<h2 id="initialising-your-assignments-directory">Initialising your assignments directory</h2>
+<p>What follows is a recipe to initialise a git repository for your class assignments.</p>
+<h3 id="git-init">git init</h3>
+<p>Let's assume you have a directory on your machine <code>~/cth2016</code> where you intend to place all your assignments. To create a dedicated assignments directory:</p>
+<pre><code>$ cd ~/cth2016
+$ mkdir cth2016-assignments
+$ cd cth2016-assignments</code></pre>
+<p>This will create a new directory <code>~/cth2016/cth2016-assignments/</code> that will be turned into a git repository with the following commands:</p>
+<pre><code>$ git init</code></pre>
+<h3 id="git-add">git add</h3>
+<p>Your directory is now under version control, though there is nothing in there yet. Let's first create a README file describing what the repo is about:</p>
+<pre><code>$ echo &#39;Repository of CTH2016 assignments&#39; &gt; README</code></pre>
+<p>This command will create a new README file on your system and add to it the <code>echo</code> string. You can, of course, create the file manually using Sublime. To make sure git is keeping track of this new file, emit the following command:</p>
+<pre><code>$ git status</code></pre>
+<p>The above should display the new file in the list of changes to the repo since it has been created. Yet the README file <em>is not</em> currently added to the repo (marked in red). To add the file to the repo:</p>
+<pre><code>$ git add README</code></pre>
+<p>Now <code>git status</code> should list the file in green and mark it as new. Any files that will be added to the directory will need to be added to the repo using the <code>git add</code> command.</p>
+<h3 id="git-commit">git commit</h3>
+<p>When adding new files or changing them, you need to commit these to the repo:</p>
+<pre><code>$ git commit -a -m &#39;initial commit&#39;</code></pre>
+<p>From the git command above <code>-a</code> means to you are committing all changes listed by <code>git status</code> and <code>-m</code> is the message for the commit. If you do a <code>git status</code> you should now see that the README file dissapeared from the list of changes since it has just been committed. Changing the README file will re-introduce it to list of changes. A commit is like a recorded snapshot of the repo, any changes that occur after the commit will be flagged in <code>git status</code>.</p>
+<h3 id="github">github</h3>
+<p>Now that you have added a README file and committed this change to your local repo, it is time to link it to Github so that your instructor and your peers can &quot;clone&quot; it. To do so, login to <a href="https://github.com">Github</a> and on the top/right corner of the page select the '+' symbol and 'New repository'</p>
+<p><img src="./img/github-new-repo.png" width='250px' class='inline-img'/></p>
+<p>and give it a name, make it public and do not initialise it with a README since you already have one:</p>
+<p><img src="./img/github-new-repo-name.png" class='inline-img'/></p>
+<p>When your (now empty) github repo is created, you need to copy its url:</p>
+<p><img src="./img/github-new-repo-clone.png" class='inline-img'/></p>
+<p>and add a &quot;remote origin&quot; to your local git repo with this command</p>
+<pre><code>git remote add origin [your-github-https-url]</code></pre>
+<h3 id="git-push">git push</h3>
+<p>When this is done, you can now <code>push</code> your local changes to the online github repo</p>
+<pre><code>git push origin master</code></pre>
+<p>If you refresh the github webpage, you should now see it updated with your README file</p>
+<p><img src="./img/github-done.png" class='inline-img'/></p>
+<p>Your local repo and your github repo are now linked and ready to go!</p>
+<hr />
+<h2 id="creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</h2>
+<p>What follows is a recipe to create a new assignment in your newly initialised git assignments repository.</p>
+<h3 id="assignment-x">assignment-x</h3>
+<p>If you have followed the previous section, you should now have a directory named <code>~/cth2016/cth2016-assignments/</code> under which you will add a new <code>assignment-x</code>. To create the new directory:</p>
+<pre><code>$ cd ~/cth2016/cth2016-assignments/
+$ mkdir assignment-x
+$ cd assignment-x</code></pre>
+<h3 id="npm-init">npm init</h3>
+<p>Node has a package manager named <code>npm</code> (n-ode, p-ackage, m-anager) that automates the task of creating a project from scratch and configures it in a way that is compatible with other node projects. We will use <code>npm</code> during the course of the module.</p>
+<p>To initialise a new project/assignment, simply emit the follow command:</p>
+<pre><code>$ npm init</code></pre>
+<p>and you will be asked various questions regarding your project's name, version, description, entry point, author, etc. which you can configure at will (press &lt;'enter'&gt; to select and move to the next configuration step).</p>
+<p>A <code>package.json</code> file is created upon the completion of <code>npm init</code>. This file contains all the configurations you selected and can be edited manually.</p>
+<h3 id="npm-install---save-commander">npm install --save commander</h3>
+<p>This step is optional, yet recommended for your assignment. When making a node application, modules/libraries can be made part of your project using <code>npm</code>. Thousands of javascript libraries are available on <a href="https://www.npmjs.com">www.npmjs.com</a> which you can install with a simple <code>npm</code> command.</p>
+<p>As in the first session of the class on the Command Line Interface (CLI), we will be using <a href="https://www.npmjs.com/package/commander">&quot;commander&quot;</a> for our applications. To install it for you assignment, use the following command:</p>
+<pre><code>$ npm install --save commander</code></pre>
+<p>This will create a <code>node_modules</code> directory next to <code>package.json</code> where the commander code is placed. All modules installed using <code>npm</code> will reside in this <code>node_modules</code> directory.</p>
+<h3 id="index.js">index.js</h3>
+<p>Now that you have an npm project created and installed commander it is time to create an <code>index.js</code> file containing the code for the assignment. Though since I am not following a proper assignment per se, I will simply create a simple tri-lingual script that will output <code>&quot;Hello!&quot;</code>, <code>&quot;Dag!&quot;</code> or <code>&quot;Allô!&quot;</code> depending on a command line arguments passed to the script which can be of the type <code>en</code> (english), <code>nl</code> (nederlands), <code>fr</code> (français) or nothing.</p>
+<p>To create <code>index.js</code> simply type (or, alternatively, create it with Sublime):</p>
+<pre><code>$ touch index.js</code></pre>
+<p>Now open the file and input the desired code:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">
+<span class="co">// simplest tri-lingual program </span>
+
+<span class="kw">var</span> program <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;commander&#39;</span>)<span class="op">;</span>
+ 
+program
+  .<span class="at">version</span>(<span class="st">&#39;0.1&#39;</span>)
+  .<span class="at">option</span>(<span class="st">&#39;-l, --language [code]&#39;</span><span class="op">,</span> <span class="st">&#39;Language&#39;</span><span class="op">,</span> <span class="ss">/</span><span class="sc">^(</span><span class="ss">en</span><span class="sc">|</span><span class="ss">nl</span><span class="sc">|</span><span class="ss">fr</span><span class="sc">)$</span><span class="ss">/i</span>)
+  .<span class="at">parse</span>(<span class="va">process</span>.<span class="at">argv</span>)<span class="op">;</span>
+
+<span class="cf">switch</span>(<span class="va">program</span>.<span class="at">language</span>)
+<span class="op">{</span>
+    <span class="cf">case</span>(<span class="st">&#39;en&#39;</span>)<span class="op">:</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Hello!&#39;</span>)<span class="op">;</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="cf">case</span>(<span class="st">&#39;nl&#39;</span>)<span class="op">:</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Dag!&#39;</span>)<span class="op">;</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="cf">case</span>(<span class="st">&#39;fr&#39;</span>)<span class="op">:</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Allô!&#39;</span>)<span class="op">;</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="dt">default</span><span class="op">:</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;...&#39;</span>)<span class="op">;</span>
+        <span class="cf">break</span><span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>To run the script</p>
+<pre><code>$ node index.js -l fr</code></pre>
+<p>where you can replace <code>fr</code> by <code>en</code> or <code>nl</code> or nothing. Try it out!</p>
+<h3 id="readme">README</h3>
+<p>One of the interesting feature of commander is that it can auto generate a <code>&quot;help&quot;</code> output from your script based on the command line options you have listed in your program.</p>
+<p>To see this help output, simply type:</p>
+<pre><code>node index.js --help</code></pre>
+<pre><code>  Usage: index [options]
+
+  Options:
+
+    -h, --help             output usage information
+    -V, --version          output the version number
+    -l, --language [code]  Language
+</code></pre>
+<p>It is very common for command line scripts to feature such <code>--help</code> argument that when executed, displays what the program expects as input. Thus, for this class, each README you will create (for both assignments and final project) is expected to have (at least) this type of &quot;helper documentation&quot;.</p>
+<p>To initialise a README and add the <code>help</code> output from your script:</p>
+<pre><code>$ node index.js --help &gt; README</code></pre>
+<p>You can, of course, edit this README manually. It is nonetheless a very good practice to start the redaction with the <code>help</code> as it signals how to use your script to people that may be interested in it.</p>
+<h3 id="git-add-1">git add</h3>
+<p>Now that you have a proper project initialised, the next step is to add all its files to git.</p>
+<p>Yet before we do so, there one important file you need to fetch from github which will instruct git not to include to you repository unwanted files that may be installed by <code>npm</code> or by your operating system. Git has a special file called <code>.gitignore</code> that lists files and file patterns that have to be ignored by git. Luckily, there is a <a href="https://github.com/github/gitignore">github repository</a> maintained by the git community that lists common files to ignore depending on the programming language and environment your are using.</p>
+<p>To download the Node <code>.gitignore</code> and install it under the current <code>assignment-x</code>, type the following command:</p>
+<pre><code>$ wget https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -O .gitignore</code></pre>
+<p>It is now time to look which file needs to be added to git. In order to do so type:</p>
+<pre><code>$ git status</code></pre>
+<p>This should indicate which directories and/or files that are untracked. If you have followed the previous steps, <code>git status</code> should simply signal that the current directory <code>./</code> is untracked. To add it to git:</p>
+<pre><code>$ git add ./</code></pre>
+<p>To make sure git properly added the new assignment, simply check with <code>git status</code> that your <code>package.json</code>, <code>index.js</code>, <code>README</code>, and various file in <code>node_modules</code> are marked as new files (green).</p>
+<h3 id="git-commit-1">git commit</h3>
+<p>The next step is to commit these new files to your local git repo:</p>
+<pre><code>$ git commit -a -m &quot;initial commit for assignment-x&quot;</code></pre>
+<h3 id="git-push-1">git push</h3>
+<p>And push the commit to your assignments github repo:</p>
+<pre><code>$ git push origin master</code></pre>
+<p>You should now see these changes online in your new <code>cth2016-assignments/assignment-x/</code> directory:</p>
+<p><img src="./img/github-assignment-x.png" class='inline-img'/></p>
+<hr />
+<h2 id="external-resources">External Resources</h2>
+<p>Github</p>
+<ul>
+<li><a href="https://help.github.com/articles/set-up-git/">Github Help - Set Up Git</a></li>
+<li><a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">Github Help - Adding an existing project</a></li>
+</ul>
+<p>Git</p>
+<ul>
+<li><a href="https://git-scm.com/book/en/v1/Getting-Started">Git - Getting Started</a></li>
+<li><a href="https://git-scm.com/videos">Git - Getting Started (Videos)</a></li>
+<li><a href="http://swcarpentry.github.io/git-novice/">Software Carpentry - Git Tutorial</a></li>
+</ul>
+<p>Node</p>
+<ul>
+<li><a href="https://nodeschool.io/#workshopper-list">Nodeschool</a></li>
+</ul>
+</content>
+</body>
+</html>
