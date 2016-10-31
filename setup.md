@@ -55,3 +55,8 @@ And you should have this printed out if the install has been successful:
 
 [Github](https://github.com)
 
+### Slack
+
+[cth2016.slack.com](https://cth2016.slack.com)
+
+
