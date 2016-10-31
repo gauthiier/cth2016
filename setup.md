@@ -6,7 +6,7 @@ title: CTH-2016 / Setup (Git, Node, Sublime Text)
 
 #### 1. Download
 
-[Git dowload](https://git-scm.com/downloads)
+[Git dowload page](https://git-scm.com/downloads) -- install current version
 
 #### 2. Test Installation
 
@@ -31,7 +31,7 @@ These credentials will be used to identify your work when committing to a git re
 
 #### 1. Download
 
-[Node.js download](https://nodejs.org/en/download/) -- install LTS verion v6.9.1
+[Node.js download page](https://nodejs.org/en/download/) -- install LTS verion v6.9.1
 
 #### 2. Test Installation
 
@@ -47,7 +47,7 @@ And you should have this printed out if the install has been successful:
 
 #### Download 
 
-[Sublime Text 3](http://www.sublimetext.com/3)
+[Sublime Text 3 download page](http://www.sublimetext.com/3)
 
 ### Github
 
