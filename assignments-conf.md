@@ -58,7 +58,9 @@ When your (now empty) github repo is created, you need to copy its url:
 
 and add a "remote origin" to your local git repo with this command
 
-	git remote add origin [your-github-https-url]
+	git remote add origin your-github-https-url
+
+where you replace "your-github-https-url" with your actual github url (for instance, on my repo it is: https://github.com/gauthiier/cth2016-assignments.git)
 
 ### git push	
 
