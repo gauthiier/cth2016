@@ -35,6 +35,7 @@ Links:
 
 * [Setup (Git, Node, Sublime Text)](./setup.html)
 * [Assignments Configuration](./assignments-conf.html)
+* [Weekly Repository](https://github.com/gauthiier/cth2016)
 
 #### Week 2 (09/11) — Scripts & Executions
 
@@ -121,6 +122,7 @@ Texts:
 During this session, time will be allocated to answer questions regarding final projects.
 
 #### Week 7 (14/12) — Final Project Presentations
+
 
 ## Assignments
 
