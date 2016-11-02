@@ -126,7 +126,7 @@ During this session, time will be allocated to answer questions regarding final 
 
 ## Assignments
 
-* Assignment #1: tba
+* [Assignment #1: Bookstore (CLI)](./assignments.html)
 * Assignment #2: tba
 * Assignment #3: tba
 
