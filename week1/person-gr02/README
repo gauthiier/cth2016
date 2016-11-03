@@ -1,0 +1,9 @@
+
+  Usage: person [options]
+
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -n, --name [string]  Name of the person to match
+
