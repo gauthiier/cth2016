@@ -2,8 +2,6 @@
 
 [commander](https://www.npmjs.com/package/commander)
 
-[chance](http://chancejs.com)
-
 [Athenaeum Boekhandel](http://www.athenaeum.nl)
 
 [American Book Center](http://www.abc.nl)
