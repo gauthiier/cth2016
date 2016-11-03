@@ -55,87 +55,72 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#initialising-your-assignments-directory">Initialising your assignments directory</a><ul>
-<li><a href="#git-init">git init</a></li>
-<li><a href="#git-add">git add</a></li>
-<li><a href="#git-commit">git commit</a></li>
-<li><a href="#github">github</a></li>
-<li><a href="#git-push">git push</a></li>
+<li><a href="#initialising-your-assignments-repository">Initialising your assignments repository</a><ul>
+<li><a href="#step-1-create-repository-on-github">Step 1: Create repository on Github</a></li>
+<li><a href="#step-2-clone-the-repository-to-your-own-machine">Step 2: Clone the repository to your own machine</a></li>
 </ul></li>
 <li><a href="#creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</a><ul>
-<li><a href="#assignment-x">assignment-x</a></li>
-<li><a href="#npm-init">npm init</a></li>
-<li><a href="#npm-install---save-commander">npm install --save commander</a></li>
-<li><a href="#index.js">index.js</a></li>
-<li><a href="#readme">README</a></li>
-<li><a href="#git-add-1">git add</a></li>
-<li><a href="#git-commit-1">git commit</a></li>
-<li><a href="#git-push-1">git push</a></li>
+<li><a href="#step-1-create-a-new-directory-under-your-assignments-repository">Step 1: Create a new directory under your assignments repository</a></li>
+<li><a href="#step-2-initialise-you-project-with-npm-init">Step 2: Initialise you project with npm init</a></li>
+<li><a href="#step-3-optional-npm-install---save-commander">Step 3 (optional): npm install --save commander</a></li>
+<li><a href="#step-4-create-your-actual-assigment-scripts">Step 4: Create your actual assigment script(s)</a></li>
+<li><a href="#step-5-run-you-script">Step 5: Run you script</a></li>
+<li><a href="#step-6-create-a-readme">Step 6: Create a README</a></li>
+<li><a href="#step-7-add-your-created-files-to-git">Step 7: Add your created files to git</a></li>
+<li><a href="#step-8-commit-your-changes-and-push-to-github">Step 8: Commit your changes and push to Github</a></li>
 </ul></li>
+<li><a href="#updating-your-assignment-as-you-make-progress">Updating your assignment as you make progress</a></li>
 <li><a href="#external-resources">External Resources</a></li>
 </ul>
 </nav>
-<h2 id="initialising-your-assignments-directory">Initialising your assignments directory</h2>
+<h2 id="initialising-your-assignments-repository">Initialising your assignments repository</h2>
 <p>What follows is a recipe to initialise a git repository for your class assignments.</p>
-<h3 id="git-init">git init</h3>
-<p>Let's assume you have a directory on your machine <code>~/cth2016</code> where you intend to place all your assignments. To create a dedicated assignments directory:</p>
-<pre><code>$ cd ~/cth2016
-$ mkdir cth2016-assignments
-$ cd cth2016-assignments</code></pre>
-<p>This will create a new directory <code>~/cth2016/cth2016-assignments/</code> that will be turned into a git repository with the following commands:</p>
-<pre><code>$ git init</code></pre>
-<h3 id="git-add">git add</h3>
-<p>Your directory is now under version control, though there is nothing in there yet. Let's first create a README file describing what the repo is about:</p>
-<pre><code>$ echo &#39;Repository of CTH2016 assignments&#39; &gt; README</code></pre>
-<p>This command will create a new README file on your system and add to it the <code>echo</code> string. You can, of course, create the file manually using Sublime. To make sure git is keeping track of this new file, emit the following command:</p>
-<pre><code>$ git status</code></pre>
-<p>The above should display the new file in the list of changes to the repo since it has been created. Yet the README file <em>is not</em> currently added to the repo (marked in red). To add the file to the repo:</p>
-<pre><code>$ git add README</code></pre>
-<p>Now <code>git status</code> should list the file in green and mark it as new. Any files that will be added to the directory will need to be added to the repo using the <code>git add</code> command.</p>
-<h3 id="git-commit">git commit</h3>
-<p>When adding new files or changing them, you need to commit these to the repo:</p>
-<pre><code>$ git commit -a -m &#39;initial commit&#39;</code></pre>
-<p>From the git command above <code>-a</code> means to you are committing all changes listed by <code>git status</code> and <code>-m</code> is the message for the commit. If you do a <code>git status</code> you should now see that the README file dissapeared from the list of changes since it has just been committed. Changing the README file will re-introduce it to list of changes. A commit is like a recorded snapshot of the repo, any changes that occur after the commit will be flagged in <code>git status</code>.</p>
-<h3 id="github">github</h3>
-<p>Now that you have added a README file and committed this change to your local repo, it is time to link it to Github so that your instructor and your peers can &quot;clone&quot; it. To do so, login to <a href="https://github.com">Github</a> and on the top/right corner of the page select the '+' symbol and 'New repository'</p>
+<h3 id="step-1-create-repository-on-github">Step 1: Create repository on Github</h3>
+<p>First create a repository under your github account. To do so, login to <a href="https://github.com">Github</a> and on the top/right corner of the page select the '+' symbol and 'New repository'</p>
 <p><img src="./img/github-new-repo.png" width='250px' class='inline-img'/></p>
-<p>and give it a name, make it public and do not initialise it with a README since you already have one:</p>
+<p>Then fill in the information for the assignments repo.</p>
+<ul>
+<li>Note 1: Select &quot;Initialize this repository with a README&quot;</li>
+<li>Note 2: From the &quot;Add .gitignore&quot; drop down menu, selecte Node</li>
+</ul>
 <p><img src="./img/github-new-repo-name.png" class='inline-img'/></p>
-<p>When your (now empty) github repo is created, you need to copy its url:</p>
+<h3 id="step-2-clone-the-repository-to-your-own-machine">Step 2: Clone the repository to your own machine</h3>
+<p>Now that you have a github repo, you need to <code>clone</code> it to your machine. Open a terminal and navigate (<code>cd</code> and <code>ls</code>) to a prefered directory on your machine where you want your assignments to reside (for instance the Desktop).</p>
+<p>When this is done, select the &quot;Clone or download&quot; menu on your githib repo's page and copy the listed url:</p>
 <p><img src="./img/github-new-repo-clone.png" class='inline-img'/></p>
-<p>and add a &quot;remote origin&quot; to your local git repo with this command</p>
-<pre><code>git remote add origin your-github-https-url</code></pre>
-<p>where you replace &quot;your-github-https-url&quot; with your actual github url (for instance, on my repo it is: https://github.com/gauthiier/cth2016-assignments.git)</p>
-<h3 id="git-push">git push</h3>
-<p>When this is done, you can now <code>push</code> your local changes to the online github repo</p>
-<pre><code>git push origin master</code></pre>
-<p>If you refresh the github webpage, you should now see it updated with your README file</p>
-<p><img src="./img/github-done.png" class='inline-img'/></p>
-<p>Your local repo and your github repo are now linked and ready to go!</p>
+<p>Coming back to your terminal, simply type the following to <code>clone</code> the repo on your machine:</p>
+<pre><code>$ git clone your-github-repo-url</code></pre>
+<p>(where your-github-repo-url is your copied/pasted url from github)</p>
+<p>This will create a directory under the current folder where your terminal is. To view the changes, simply type:</p>
+<pre><code>$ ls -al</code></pre>
 <hr />
 <h2 id="creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</h2>
 <p>What follows is a recipe to create a new assignment in your newly initialised git assignments repository.</p>
-<h3 id="assignment-x">assignment-x</h3>
-<p>If you have followed the previous section, you should now have a directory named <code>~/cth2016/cth2016-assignments/</code> under which you will add a new <code>assignment-x</code>. To create the new directory:</p>
-<pre><code>$ cd ~/cth2016/cth2016-assignments/
-$ mkdir assignment-x
-$ cd assignment-x</code></pre>
-<h3 id="npm-init">npm init</h3>
-<p>Node has a package manager named <code>npm</code> (n-ode, p-ackage, m-anager) that automates the task of creating a project from scratch and configures it in a way that is compatible with other node projects. We will use <code>npm</code> during the course of the module.</p>
-<p>To initialise a new project/assignment, simply emit the follow command:</p>
+<h3 id="step-1-create-a-new-directory-under-your-assignments-repository">Step 1: Create a new directory under your assignments repository</h3>
+<p>If you have followed the previous section, you should now have a repositroy on your machine which is linked to your github account. Let's assume that your repo is named <code>cth2016-assignments/</code> and resides on your Desktop.</p>
+<p>To create a new assigment, you need to point your terminal to the repo:</p>
+<pre><code>$ cd ~/Desktop/cth2016-assignments/</code></pre>
+<p>and then create a new directory, which I will call <code>assignment-x</code>. To do so, on the terminal, simply type:</p>
+<pre><code>$ mkdir assignment-x
+$ cd assignment-x   </code></pre>
+<p>This will create a new direcory <code>assignment-x</code> under <code>~/Desktop/cth2016-assignments/</code>. The <code>cd</code> command puts your terminal inside this newly created directory so that you can initialise your actual project in step 2.</p>
+<h3 id="step-2-initialise-you-project-with-npm-init">Step 2: Initialise you project with npm init</h3>
+<p>Node has a package manager named <code>npm</code> (n-ode, p-ackage, m-anager) that automates the task of creating a project from scratch and configures it in a way that is compatible with other node projects. We will use <code>npm</code> during the module.</p>
+<p>To initialise your new assignment under <code>assignment-x</code>, simply emit the follow command:</p>
 <pre><code>$ npm init</code></pre>
-<p>and you will be asked various questions regarding your project's name, version, description, entry point, author, etc. which you can configure at will (press &lt;'enter'&gt; to select and move to the next configuration step).</p>
+<p>With this commad you will be asked various questions regarding your project's name, version, description, entry point, author, etc. which you can configure at will (press &lt;'enter'&gt; to select and move to the next configuration step).</p>
 <p>A <code>package.json</code> file is created upon the completion of <code>npm init</code>. This file contains all the configurations you selected and can be edited manually.</p>
-<h3 id="npm-install---save-commander">npm install --save commander</h3>
+<h3 id="step-3-optional-npm-install---save-commander">Step 3 (optional): npm install --save commander</h3>
 <p>This step is optional, yet recommended for your assignment. When making a node application, modules/libraries can be made part of your project using <code>npm</code>. Thousands of javascript libraries are available on <a href="https://www.npmjs.com">www.npmjs.com</a> which you can install with a simple <code>npm</code> command.</p>
 <p>As in the first session of the class on the Command Line Interface (CLI), we will be using <a href="https://www.npmjs.com/package/commander">&quot;commander&quot;</a> for our applications. To install it for you assignment, use the following command:</p>
 <pre><code>$ npm install --save commander</code></pre>
 <p>This will create a <code>node_modules</code> directory next to <code>package.json</code> where the commander code is placed. All modules installed using <code>npm</code> will reside in this <code>node_modules</code> directory.</p>
-<h3 id="index.js">index.js</h3>
-<p>Now that you have an npm project created and installed commander it is time to create an <code>index.js</code> file containing the code for the assignment. Though since I am not following a proper assignment per se, I will simply create a simple tri-lingual script that will output <code>&quot;Hello!&quot;</code>, <code>&quot;Dag!&quot;</code> or <code>&quot;Allô!&quot;</code> depending on a command line arguments passed to the script which can be of the type <code>en</code> (english), <code>nl</code> (nederlands), <code>fr</code> (français) or nothing.</p>
-<p>To create <code>index.js</code> simply type (or, alternatively, create it with Sublime):</p>
+<h3 id="step-4-create-your-actual-assigment-scripts">Step 4: Create your actual assigment script(s)</h3>
+<p>Now that you have an npm project created and installed commander it is time to create your script(s). For instance, in this example, I will create <code>index.js</code> file containing the code for the fake assignment. This file can be called anything (for instance, person.js as in the example in class during week1).</p>
+<p>Though since I am not following a proper assignment per se, I will simply create a simple tri-lingual script that will output <code>&quot;Hello!&quot;</code>, <code>&quot;Dag!&quot;</code> or <code>&quot;Allô!&quot;</code> depending on a command line arguments passed to the script which can be of the type <code>en</code> (english), <code>nl</code> (nederlands), <code>fr</code> (français) or nothing.</p>
+<p>To create <code>index.js</code> simply type (or, alternatively, create it with Sublime Text):</p>
 <pre><code>$ touch index.js</code></pre>
-<p>Now open the file and input the desired code:</p>
+<p>Now open the file usign Sublime Text, copy/paste or input the desired code and save:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">
 <span class="co">// simplest tri-lingual program </span>
 
@@ -161,13 +146,16 @@ program
         <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;...&#39;</span>)<span class="op">;</span>
         <span class="cf">break</span><span class="op">;</span>
 <span class="op">}</span></code></pre></div>
+<h3 id="step-5-run-you-script">Step 5: Run you script</h3>
 <p>To run the script</p>
-<pre><code>$ node index.js -l fr</code></pre>
+<pre><code>$ node index.js -l fr
+Allô!</code></pre>
 <p>where you can replace <code>fr</code> by <code>en</code> or <code>nl</code> or nothing. Try it out!</p>
-<h3 id="readme">README</h3>
+<p>If you called you script another name (for instance, person.js), please change the above <code>index.js</code> with the name of your own script.</p>
+<h3 id="step-6-create-a-readme">Step 6: Create a README</h3>
 <p>One of the interesting feature of commander is that it can auto generate a <code>&quot;help&quot;</code> output from your script based on the command line options you have listed in your program.</p>
 <p>To see this help output, simply type:</p>
-<pre><code>node index.js --help</code></pre>
+<pre><code>$ node index.js --help</code></pre>
 <pre><code>  Usage: index [options]
 
   Options:
@@ -179,26 +167,39 @@ program
 <p>It is very common for command line scripts to feature such <code>--help</code> argument that when executed, displays what the program expects as input. Thus, for this class, each README you will create (for both assignments and final project) is expected to have (at least) this type of &quot;helper documentation&quot;.</p>
 <p>To initialise a README and add the <code>help</code> output from your script:</p>
 <pre><code>$ node index.js --help &gt; README</code></pre>
-<p>You can, of course, edit this README manually. It is nonetheless a very good practice to start the redaction with the <code>help</code> as it signals how to use your script to people that may be interested in it.</p>
-<h3 id="git-add-1">git add</h3>
+<p>Alternatively, you can create the README with Sublime Text and copy/paste the result of the <code>--help</code> manually.</p>
+<p>It is a very good practice to start the redaction with the <code>--help</code> as it signals how to use your script to people that may be interested in it.</p>
+<h3 id="step-7-add-your-created-files-to-git">Step 7: Add your created files to git</h3>
 <p>Now that you have a proper project initialised, the next step is to add all its files to git.</p>
-<p>Yet before we do so, there one important file you need to fetch from github which will instruct git not to include to you repository unwanted files that may be installed by <code>npm</code> or by your operating system. Git has a special file called <code>.gitignore</code> that lists files and file patterns that have to be ignored by git. Luckily, there is a <a href="https://github.com/github/gitignore">github repository</a> maintained by the git community that lists common files to ignore depending on the programming language and environment your are using.</p>
-<p>To download the Node <code>.gitignore</code> and install it under the current <code>assignment-x</code>, type the following command:</p>
-<pre><code>$ wget https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -O .gitignore</code></pre>
-<p>It is now time to look which file needs to be added to git. In order to do so type:</p>
+<p>To view which file needs to be added to git type:</p>
 <pre><code>$ git status</code></pre>
-<p>This should indicate which directories and/or files that are untracked. If you have followed the previous steps, <code>git status</code> should simply signal that the current directory <code>./</code> is untracked. To add it to git:</p>
+<p>This should indicate which directories and/or files are untracked by git.</p>
+<p>If you have followed the previous steps, <code>git status</code> should simply signal that the current directory <code>./</code> is untracked. To add it to git:</p>
 <pre><code>$ git add ./</code></pre>
-<p>To make sure git properly added the new assignment, simply check with <code>git status</code> that your <code>package.json</code>, <code>index.js</code>, <code>README</code>, and various file in <code>node_modules</code> are marked as new files (green).</p>
-<h3 id="git-commit-1">git commit</h3>
+<p>To make sure git properly added the new assignment, simply type (again):</p>
+<pre><code>$ git status</code></pre>
+<p>and check that your <code>package.json</code>, <code>index.js</code> (or whatever you have called your file(s)), and <code>README</code> are marked as new files (green).</p>
+<h3 id="step-8-commit-your-changes-and-push-to-github">Step 8: Commit your changes and push to Github</h3>
 <p>The next step is to commit these new files to your local git repo:</p>
 <pre><code>$ git commit -a -m &quot;initial commit for assignment-x&quot;</code></pre>
-<h3 id="git-push-1">git push</h3>
 <p>And push the commit to your assignments github repo:</p>
 <pre><code>$ git push origin master</code></pre>
 <p>You should now see these changes online in your new <code>cth2016-assignments/assignment-x/</code> directory:</p>
 <p><img src="./img/github-assignment-x.png" class='inline-img'/></p>
+<p>NOTE: <code>node_modules</code> is not be pushed to github, why? Because when someone will clone your project (your instructor for example), she/he will <code>npm install</code> it her/himself as it is listed as a dependency in <code>package.json</code>.</p>
 <hr />
+<h2 id="updating-your-assignment-as-you-make-progress">Updating your assignment as you make progress</h2>
+<p>It is assumed that you will make many changes to your assigment while your a working on it.</p>
+<p>The ususall cycle of working on some piece of code is to first (1) add you files to the repo (re: Step 7), (2) modify your files while you are working, and (3) when your code is working as inteted, commit your changes and push to github (re: Step 8).</p>
+<p>The usual updating loop looks a bit like this:</p>
+<ol style="list-style-type: decimal">
+<li><code>git status</code></li>
+<li>(optional) <code>git add</code> xyz depending on what was added to the project while working on it.</li>
+<li><code>git commit -a -m &quot;message for the commit&quot;</code></li>
+<li><code>git push origin master</code></li>
+<li>work a bit more</li>
+<li>loop and goto 1.</li>
+</ol>
 <h2 id="external-resources">External Resources</h2>
 <p>Github</p>
 <ul>
