@@ -12,7 +12,8 @@ Letter:
 
 [word-wrap](https://www.npmjs.com/package/word-wrap)
 
-'''
+```
+
 var chance = require('chance').Chance();
 
 var wrap = require('word-wrap');
@@ -29,7 +30,7 @@ const adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFUL
 
 const verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES','HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS', 'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES', 'WOOS', 'YEARNS FOR'];
 
-'''
+```
 
 ![](https://gauthiier.github.io/cth2016/img/14.png)
 
