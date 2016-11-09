@@ -22,9 +22,26 @@ var book3_title = "Why Grow Up?";
 var book3_price = 15.95;
 var book3_author = "Susan Neiman";
 
-etc...
+
+var book3 = {
+	'title': "Why Grow Up?",
+	'price': 15.95,
+	'author': "Susan Neiman"
+};
+
+
+console.log(book3_price);
+
+console.log(book3);
 
 */
+
+
+
+
+//etc...
+
+
 
 // database of books
 var books = [
@@ -66,28 +83,28 @@ program
   .parse(process.argv);
 
 if(program.title) {
-	for(let i = 0; i < books.length; i++) {
+	for(var i = 0; i < books.length; i++) {
 		if(program.title === books[i].title) {
 			print_book(books[i]);
 		}
 	}
 }  
 else if(program.author) {
-	for(let i = 0; i < books.length; i++) {
+	for(var i = 0; i < books.length; i++) {
 		if(program.author === books[i].author) {
 			print_book(books[i]);
 		}
 	}	
 }
 else if(program.kind) {
-	for(let i = 0; i < books.length; i++) {
+	for(var i = 0; i < books.length; i++) {
 		if(program.kind === books[i].kind) {
 			print_book(books[i]);
 		}
 	}	
 } 
 else if(program.max) {
-	for(let i = 0; i < books.length; i++) {
+	for(var i = 0; i < books.length; i++) {
 		if(books[i].price < program.max) {
 			print_book(books[i]);
 		}

@@ -1,0 +1,14 @@
+{
+  "name": "gr01-bookstore",
+  "version": "1.0.0",
+  "description": "test code for week2 gr01",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
