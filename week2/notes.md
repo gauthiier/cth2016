@@ -1,5 +1,11 @@
 #### (working) notes
 
+Arrays:
+
+![](https://gauthiier.github.io/cth2016/img/one_dim_ar.jpg)
+
+Letter:
+
 [commander](https://www.npmjs.com/package/commander)
 
 [chance](http://chancejs.com)
@@ -20,3 +26,7 @@ const verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DES
 '''
 
 ![](https://gauthiier.github.io/cth2016/img/14.png)
+
+![](https://gauthiier.github.io/cth2016/img/14.1.png)
+
+![](https://gauthiier.github.io/cth2016/img/14.2.png)
