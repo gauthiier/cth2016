@@ -51,6 +51,7 @@ Texts:
 * Geoff Cox & Alex McLean. [Double Coding / Speaking Code: Coding as Aesthetic and Political Expression](./texts/CoxMcLean-Double_Coding.pdf)
 * [Christopher Strachey](http://rhizome.org/editorial/2013/apr/9/queer-history-computing-part-three/#_edn4). Love Letters
 	* Noah Wardrip-Fruin. ["Christopher Strachey: The first digital artist?"](https://grandtextauto.soe.ucsc.edu/2005/08/01/christopher-strachey-first-digital-artist/)
+	* Noah Wardrip-Fruin. ["Digital Media Archeology"](./texts/noah-wardripfruin-DigitalMediaArchaeology.pdf)	
 	* David Link. [LoveLetters_1.0](http://www.alpha60.de/art/love_letters/) - [Archive](http://www.alpha60.de/art/love_letters/archive/muc/)	
 
 __Assignment#1 due (08/11/16 13:00)__
@@ -127,7 +128,7 @@ During this session, time will be allocated to answer questions regarding final 
 ## Assignments
 
 * [Assignment #1: Bookstore (CLI)](./assignments.html)
-* Assignment #2: tba
+* [Assignment #2: (Love) Letters](./assignments.html)
 * Assignment #3: tba
 
 Each individual assignment will be posted on the day of the class (weeks 1, 2, 3).

@@ -16,6 +16,17 @@
 <header>
 <h1 class="title">CTH-2016 / Assignments</h1>
 </header>
+<nav id="TOC">
+<ul>
+<li><a href="#assignment-1">Assignment #1</a><ul>
+<li><a href="#grading">Grading</a></li>
+</ul></li>
+<li><a href="#assignment-2">Assignment #2</a><ul>
+<li><a href="#grading-1">Grading</a></li>
+<li><a href="#helpful-links">Helpful links</a></li>
+</ul></li>
+</ul>
+</nav>
 <h2 id="assignment-1">Assignment #1</h2>
 <p>For this assignment you will be developing a command line interface for a fake &quot;bookstore&quot;. Using the node library <a href="https://www.npmjs.com/package/commander">commander</a> you will make available a command line interface to your program which, when executed, will output information of books that match the following criteria: (1) book title, (2) author name, (3) price, and (4) kind (paperback or hardcover).</p>
 <p>In order to gather data for your script, select 5 books from either the <a href="http://www.athenaeum.nl">Athenaeum Boekhandel</a> or the <a href="http://www.abc.nl">American Book Center</a> and construct a simple &quot;hardcoded&quot; database out of these (see example from the class).</p>
@@ -37,6 +48,36 @@ Kind: Paperback</code></pre>
 <p>This assignment will be graded on three aspects: 1) does the code work and execute as intended, 2) is the code clearly structured and documented (don't forget your README!) and 3) is the code efficient.</p>
 <p>You will hand in your assignment through your account on Github. Please refer to <a href="./assignments-conf.html">CTH-2016 / Assignments Configuration</a> on how to set up your assignments portfolio properly.</p>
 <p>The dues date for this assignment is — Tuesday November 8 2016 at 13:00.</p>
+<h2 id="assignment-2">Assignment #2</h2>
+<p>In this assignment you will write a script that will generate a love letter each time it is executed, producing similar letters, yet not exactly the same, as the ones of computing pioneer Christopher Strachey's.</p>
+<p>The basic sentence structure of your letter will resemble this: &quot;determiner + adjective + noun + adverb + verb + determiner + adjective + noun&quot;. Based on this, as an example, your script could output a sentence such as the following: &quot;MY SWEET LONGING BREATHLESSLY ADORES YOUR ANXIOUS WISH&quot;. Furthermore, your script should allow for variations of this sentence structure, that is, exclude (or not) certain components depending on randomness and yet keep the sentence grammatically correct. For example the sentence above could become: &quot;MY SWEET LONGING ADORES YOUR WISH&quot;.</p>
+<p>The output of your script (what is printed on the terminal) needs to be well formatted, meaning that it needs to resemble a letter with margins and spaces. Moreover, the number of sentences and their width needs to be parametric, that is, your script will have options for both number of sentences and sentence width (in characters).</p>
+<p>As an example (based on Strachey's), below is a generated letter of 80 characters wide and of 5 sentence:</p>
+<pre><code>$ node letter.js -w 80 -s 5
+
+
+DEAR DUCK
+
+
+  YOUR ARE MY ADORABLE YEARNING. MY AMBITION HOLDS DEAR YOUR FOND YEARNING. MY 
+  RAPTURE CHERISHES YOUR INFATUATION. YOUR ARE MY KEEN AFFECTION. : MY AVID FANCY. 
+
+
+                                                                YOURS KEENLY
+                                                                M.U.C.
+</code></pre>
+<p>Please be creative with your choice of words and sentence composition. As mentioned above, the default theme of the letter is a love one, though you are more than welcome to come up with another theme (Bank letter, Government letter, Birthday letter, etc.) as long as it produces grammatically correct sentences and addresses the reader meaningfully.</p>
+<h3 id="grading-1">Grading</h3>
+<p>This assignment will be graded on three aspects: 1) does the code work and execute as intended, 2) is the code clearly structured and documented (is the output well formatted) and 3) is the code efficient and generative.</p>
+<p>You will hand in your assignment through your account on Github (as in week 1).</p>
+<p>The dues date for this assignment is — Tuesday November 15 2016 at 13:00.</p>
+<h3 id="helpful-links">Helpful links</h3>
+<ul>
+<li><a href="https://learnenglish.britishcouncil.org/en/english-grammar/determiners-and-quantifiers">Determiners and quantifiers</a></li>
+<li><a href="https://learnenglish.britishcouncil.org/en/english-grammar/adverbials">Adverbials</a></li>
+<li><a href="https://learnenglish.britishcouncil.org/en/english-grammar">(General) English Grammar</a></li>
+<li><a href="http://www.alpha60.de/art/love_letters/archive/muc/">Archive of emulated Christopher Strachey's Love Letters</a></li>
+</ul>
 </content>
 </body>
 </html>
