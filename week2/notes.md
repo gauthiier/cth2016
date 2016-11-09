@@ -4,6 +4,12 @@ Arrays:
 
 ![](https://gauthiier.github.io/cth2016/img/one_dim_ar.jpg)
 
+---
+
+![](https://gauthiier.github.io/cth2016/img/one+dimension+array.jpg)
+
+---
+
 Letter:
 
 [commander](https://www.npmjs.com/package/commander)
