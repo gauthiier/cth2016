@@ -1,0 +1,14 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "fake bookstore for CTH2016 assigment 1",
+  "main": "bookstore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
