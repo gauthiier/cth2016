@@ -13,6 +13,7 @@ Letter:
 [word-wrap](https://www.npmjs.com/package/word-wrap)
 
 ```
+// letter.js
 
 var chance = require('chance').Chance();
 
