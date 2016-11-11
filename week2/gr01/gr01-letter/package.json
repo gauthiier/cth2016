@@ -1,0 +1,16 @@
+{
+  "name": "letter",
+  "version": "1.0.0",
+  "description": "letter generation example gr01",
+  "main": "letter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.4",
+    "commander": "^2.9.0",
+    "word-wrap": "^1.1.0"
+  }
+}

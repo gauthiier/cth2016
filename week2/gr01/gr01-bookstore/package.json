@@ -1,0 +1,11 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "test code for gr01 bookstore",
+  "main": "bookstore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC"
+}
