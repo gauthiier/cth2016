@@ -14,13 +14,12 @@ First create a repository under your github account. To do so, login to [Github]
 
 Then fill in the information for the assignments repo.
 
-* Note 1: Select "Initialize this repository with a README"
-* Note 2: From the "Add .gitignore" drop down menu, selecte Node
+__* Note 1: Select "Initialize this repository with a README"__
+__* Note 2: From the "Add .gitignore" drop down menu, selecte Node__
 
 <img src="./img/github-new-repo-name.png" class='inline-img'/>
 
-
-### Step 2: Clone the repository to your own machine
+### Step 2.0: Clone the repository to your own machine using git
 
 Now that you have a github repo, you need to ```clone``` it to your machine. Open a terminal and navigate (```cd``` and ```ls```) to a prefered directory on your machine where you want your assignments to reside (for instance the Desktop).
 
@@ -37,6 +36,20 @@ Coming back to your terminal, simply type the following to ```clone``` the repo 
 This will create a directory under the current folder where your terminal is. To view the changes, simply type: 
 
 	$ ls -al
+
+### (Alternative) Step 2.1: Clone the repository to your own machine using Github Desktop
+
+This is an alternative to Step 2.0: Clone the repository to your own machine using git
+
+You can download a special Github GUI interface for git here: [https://desktop.github.com](https://desktop.github.com)
+
+Now to clone your repository (created on Step 1), select "Clone or download" menu on your githib repo's page and click on the "Open in Desktop":
+
+<img src="./img/github-new-repo-clone-desktop.png" class='inline-img'/>
+
+This will open Gihub Desktop and ask where you what to clone your Gihub repository on your machine.
+
+For more information, please visit: [https://help.github.com/desktop/guides/contributing/cloning-a-repository-from-github-to-github-desktop/](https://help.github.com/desktop/guides/contributing/cloning-a-repository-from-github-to-github-desktop/)
 
 -------
 
@@ -197,6 +210,16 @@ You should now see these changes online in your new ```cth2016-assignments/assig
 
 NOTE: ```node_modules``` is not be pushed to github, why? Because when someone will clone your project (your instructor for example), she/he will ```npm install``` it her/himself as it is listed as a dependency in ```package.json```.
 
+### (Alternative) Steps 7-8: Add, Commit and Synchronise your work with Github Desktop
+
+This is an alternative to Steps 7 and 8.
+
+When you have cloned your repository using Github Desktop, you can synchronize the changes you have made in Steps 1 to 6 using the Github desktop interface: 
+
+<img src="./img/github-repo-commit-synchronise-desktop.png" class='inline-img'/>
+
+First, commit your changes with the "Commit button" then synchronize your changes using the "Sync" button.
+
 -------
 
 ## Updating your assignment as you make progress
@@ -214,6 +237,18 @@ The usual updating loop looks a bit like this:
 5. work a bit more
 6. loop and goto 1.
 
+----------
+
+## (Alternative) Updating your assignment as you make progress using Github Desktop
+
+When you have cloned your repository using Github Desktop, you can synchronize the changes you are making using the Github desktop interface: 
+
+<img src="./img/github-repo-commit-synchronise-desktop.png" class='inline-img'/>
+
+First, commit your changes with the "Commit button" then synchronize your changes using the "Sync" button.
+
+For more information: [https://help.github.com/desktop/guides/contributing/committing-and-reviewing-changes-to-your-project/](https://help.github.com/desktop/guides/contributing/committing-and-reviewing-changes-to-your-project/)
+
 
 ## External Resources
 
@@ -221,6 +256,7 @@ Github
 
 * [Github Help - Set Up Git](https://help.github.com/articles/set-up-git/)
 * [Github Help - Adding an existing project](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+* [Github Desktop](https://help.github.com/desktop/guides/)
 
 Git
 

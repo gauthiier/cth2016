@@ -57,7 +57,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#initialising-your-assignments-repository">Initialising your assignments repository</a><ul>
 <li><a href="#step-1-create-repository-on-github">Step 1: Create repository on Github</a></li>
-<li><a href="#step-2-clone-the-repository-to-your-own-machine">Step 2: Clone the repository to your own machine</a></li>
+<li><a href="#step-2.0-clone-the-repository-to-your-own-machine-using-git">Step 2.0: Clone the repository to your own machine using git</a></li>
+<li><a href="#alternative-step-2.1-clone-the-repository-to-your-own-machine-using-github-desktop">(Alternative) Step 2.1: Clone the repository to your own machine using Github Desktop</a></li>
 </ul></li>
 <li><a href="#creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</a><ul>
 <li><a href="#step-1-create-a-new-directory-under-your-assignments-repository">Step 1: Create a new directory under your assignments repository</a></li>
@@ -68,8 +69,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#step-6-create-a-readme">Step 6: Create a README</a></li>
 <li><a href="#step-7-add-your-created-files-to-git">Step 7: Add your created files to git</a></li>
 <li><a href="#step-8-commit-your-changes-and-push-to-github">Step 8: Commit your changes and push to Github</a></li>
+<li><a href="#alternative-steps-7-8-add-commit-and-synchronise-your-work-with-github-desktop">(Alternative) Steps 7-8: Add, Commit and Synchronise your work with Github Desktop</a></li>
 </ul></li>
 <li><a href="#updating-your-assignment-as-you-make-progress">Updating your assignment as you make progress</a></li>
+<li><a href="#alternative-updating-your-assignment-as-you-make-progress-using-github-desktop">(Alternative) Updating your assignment as you make progress using Github Desktop</a></li>
 <li><a href="#external-resources">External Resources</a></li>
 </ul>
 </nav>
@@ -79,12 +82,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>First create a repository under your github account. To do so, login to <a href="https://github.com">Github</a> and on the top/right corner of the page select the '+' symbol and 'New repository'</p>
 <p><img src="./img/github-new-repo.png" width='250px' class='inline-img'/></p>
 <p>Then fill in the information for the assignments repo.</p>
-<ul>
-<li>Note 1: Select &quot;Initialize this repository with a README&quot;</li>
-<li>Note 2: From the &quot;Add .gitignore&quot; drop down menu, selecte Node</li>
-</ul>
+<p><strong>* Note 1: Select &quot;Initialize this repository with a README&quot;</strong> <strong>* Note 2: From the &quot;Add .gitignore&quot; drop down menu, selecte Node</strong></p>
 <p><img src="./img/github-new-repo-name.png" class='inline-img'/></p>
-<h3 id="step-2-clone-the-repository-to-your-own-machine">Step 2: Clone the repository to your own machine</h3>
+<h3 id="step-2.0-clone-the-repository-to-your-own-machine-using-git">Step 2.0: Clone the repository to your own machine using git</h3>
 <p>Now that you have a github repo, you need to <code>clone</code> it to your machine. Open a terminal and navigate (<code>cd</code> and <code>ls</code>) to a prefered directory on your machine where you want your assignments to reside (for instance the Desktop).</p>
 <p>When this is done, select the &quot;Clone or download&quot; menu on your githib repo's page and copy the listed url:</p>
 <p><img src="./img/github-new-repo-clone.png" class='inline-img'/></p>
@@ -93,6 +93,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>(where your-github-repo-url is your copied/pasted url from github)</p>
 <p>This will create a directory under the current folder where your terminal is. To view the changes, simply type:</p>
 <pre><code>$ ls -al</code></pre>
+<h3 id="alternative-step-2.1-clone-the-repository-to-your-own-machine-using-github-desktop">(Alternative) Step 2.1: Clone the repository to your own machine using Github Desktop</h3>
+<p>This is an alternative to Step 2.0: Clone the repository to your own machine using git</p>
+<p>You can download a special Github GUI interface for git here: <a href="https://desktop.github.com" class="uri">https://desktop.github.com</a></p>
+<p>Now to clone your repository (created on Step 1), select &quot;Clone or download&quot; menu on your githib repo's page and click on the &quot;Open in Desktop&quot;:</p>
+<p><img src="./img/github-new-repo-clone-desktop.png" class='inline-img'/></p>
+<p>This will open Gihub Desktop and ask where you what to clone your Gihub repository on your machine.</p>
+<p>For more information, please visit: <a href="https://help.github.com/desktop/guides/contributing/cloning-a-repository-from-github-to-github-desktop/" class="uri">https://help.github.com/desktop/guides/contributing/cloning-a-repository-from-github-to-github-desktop/</a></p>
 <hr />
 <h2 id="creating-a-new-assignment-node-git">Creating a new assignment (Node + Git)</h2>
 <p>What follows is a recipe to create a new assignment in your newly initialised git assignments repository.</p>
@@ -187,6 +194,11 @@ Allô!</code></pre>
 <p>You should now see these changes online in your new <code>cth2016-assignments/assignment-x/</code> directory:</p>
 <p><img src="./img/github-assignment-x.png" class='inline-img'/></p>
 <p>NOTE: <code>node_modules</code> is not be pushed to github, why? Because when someone will clone your project (your instructor for example), she/he will <code>npm install</code> it her/himself as it is listed as a dependency in <code>package.json</code>.</p>
+<h3 id="alternative-steps-7-8-add-commit-and-synchronise-your-work-with-github-desktop">(Alternative) Steps 7-8: Add, Commit and Synchronise your work with Github Desktop</h3>
+<p>This is an alternative to Steps 7 and 8.</p>
+<p>When you have cloned your repository using Github Desktop, you can synchronize the changes you have made in Steps 1 to 6 using the Github desktop interface:</p>
+<p><img src="./img/github-repo-commit-synchronise-desktop.png" class='inline-img'/></p>
+<p>First, commit your changes with the &quot;Commit button&quot; then synchronize your changes using the &quot;Sync&quot; button.</p>
 <hr />
 <h2 id="updating-your-assignment-as-you-make-progress">Updating your assignment as you make progress</h2>
 <p>It is assumed that you will make many changes to your assigment while your a working on it.</p>
@@ -200,11 +212,18 @@ Allô!</code></pre>
 <li>work a bit more</li>
 <li>loop and goto 1.</li>
 </ol>
+<hr />
+<h2 id="alternative-updating-your-assignment-as-you-make-progress-using-github-desktop">(Alternative) Updating your assignment as you make progress using Github Desktop</h2>
+<p>When you have cloned your repository using Github Desktop, you can synchronize the changes you are making using the Github desktop interface:</p>
+<p><img src="./img/github-repo-commit-synchronise-desktop.png" class='inline-img'/></p>
+<p>First, commit your changes with the &quot;Commit button&quot; then synchronize your changes using the &quot;Sync&quot; button.</p>
+<p>For more information: <a href="https://help.github.com/desktop/guides/contributing/committing-and-reviewing-changes-to-your-project/" class="uri">https://help.github.com/desktop/guides/contributing/committing-and-reviewing-changes-to-your-project/</a></p>
 <h2 id="external-resources">External Resources</h2>
 <p>Github</p>
 <ul>
 <li><a href="https://help.github.com/articles/set-up-git/">Github Help - Set Up Git</a></li>
 <li><a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">Github Help - Adding an existing project</a></li>
+<li><a href="https://help.github.com/desktop/guides/">Github Desktop</a></li>
 </ul>
 <p>Git</p>
 <ul>
