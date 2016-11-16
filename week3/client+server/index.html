@@ -22,12 +22,12 @@
 		<div id="frame">
 
 			<!-- text area where the conversation is displayed -->
-			<textarea id="conversation" rows="10" cols="65">...</textarea>
+			<textarea id="conversation" text="..." rows="10" cols="65">...</textarea>
 
 			<!-- inputs from human to send to server -->
 			<div id="inputs">
 				<label>To Localhost: </label>
-				<input id="text_field" type="text" value="..." onkeydown="enter_message();"/>
+				<input id="text_field" type="text" onkeydown="enter_message();"/>
 				<input type="button" value="Send" onclick="send_message();"/>
 			</div>
 
