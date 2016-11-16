@@ -1,5 +1,9 @@
 #### (working) notes
 
+Network Topologies
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NetworkTopologies.svg/500px-NetworkTopologies.svg.png)
+
 OSI Model
 
 ![](http://www.tech-faq.com/wp-content/uploads/2009/01/osimodel.png)
