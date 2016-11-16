@@ -129,7 +129,7 @@ During this session, time will be allocated to answer questions regarding final 
 
 * [Assignment #1: Bookstore (CLI)](./assignments.html)
 * [Assignment #2: (Love) Letters](./assignments.html)
-* Assignment #3: tba
+* [Assignment #3: Localhost's Imitation Game](./assignments.html)
 
 Each individual assignment will be posted on the day of the class (weeks 1, 2, 3).
 

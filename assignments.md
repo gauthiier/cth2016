@@ -2,7 +2,7 @@
 title: CTH-2016 / Assignments
 ---
 
-## Assignment #1
+## Assignment #1: Bookstore (CLI)
 
 For this assignment you will be developing a command line interface for a fake "bookstore". Using the node library [commander](https://www.npmjs.com/package/commander) you will make available a command line interface to your program which, when executed, will output information of books that match the following criteria: (1) book title, (2) author name, (3) price, and (4) kind (paperback or hardcover).
 
@@ -37,7 +37,7 @@ You will hand in your assignment through your account on Github. Please refer to
 
 The dues date for this assignment is — Tuesday November 8 2016 at 13:00.
 
-## Assignment #2
+## Assignment #2: (Love) Letters
 
 In this assignment you will write a script that will generate a love letter each time it is executed, producing similar letters, yet not exactly the same, as the ones of computing pioneer Christopher Strachey's. 
 
@@ -80,8 +80,20 @@ The dues date for this assignment is — Tuesday November 15 2016 at 13:00.
 * [(General) English Grammar](https://learnenglish.britishcouncil.org/en/english-grammar)
 * [Archive of emulated Christopher Strachey's Love Letters](http://www.alpha60.de/art/love_letters/archive/muc/)
 
+## Assignment #3: Localhost's Imitation Game
 
+This assignment is inspired by Alan Turing's [Imitation Game](http://www.loebner.net/Prizef/TuringArticle.html) and Joseph Weizenbaum's [ELIZA](https://en.wikipedia.org/wiki/ELIZA). 
 
+You will write a client / server application that puts into conversation a human (client) and a very basic artificial intelligence (server). The idea is to produce a HTML "chat" interface where a human subject can discuss and converse with your server-side script. Your script should be able to recognise certain sentences, phrases or keywords that are sent to it by the human subject and, in turn,  reply to these queries appropriately and meaningfully using basic randomly generated sentences (similar to the ones you created in assignment #2).
 
+A minimum of 3 variation is expected from your script, meaning that it should recognise and reply to at least 3 types of sentences, phrases or keywords.
+
+### Grading
+
+This assignment will be graded on three aspects: 1) does the code work and execute as intended, 2) is the code clearly structured and documented (is the output well formatted) and 3) is the code efficient and generative.
+
+You will hand in your assignment through your account on Github (as in weeks 1 and 2). 
+
+The dues date for this assignment is — Tuesday November 22 2016 at 13:00.
 
 
