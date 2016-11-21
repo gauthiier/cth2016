@@ -33,6 +33,10 @@ var chance = require('chance').Chance(); // npm install --save chance
 const pattern_1 = ['How do you do?', 'Wazzup?'];
 const pattern_2 = ['Why?', 'No', "ok"];
 
+// helpful punctuation
+var ponctuation = ['!', '.', '...'];
+
+
 /**
 * Iterates through and array of clauses or words and 
 * search them inside a given sentence (msg). Returns
