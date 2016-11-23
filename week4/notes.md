@@ -10,6 +10,12 @@ APIs (major vendors):
 
 [Twitter](https://dev.twitter.com/rest/public)
 
+[Google Maps](https://developers.google.com/maps/web/)
+
+[Github](https://developer.github.com/v3/)
+
+[Europeana](http://labs.europeana.eu/api/introduction)
+
 
 Interesting Projects:
 
