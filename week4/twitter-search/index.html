@@ -83,7 +83,9 @@
 
 		  // when receiving a custom message form the server ('search_twitter_results')
 		  socket.on('search_twitter_results', function(msg) {
-		  	console.log('search_twitter_results: ' + msg);
+
+		  	console.log('search_twitter_results: ' + JSON.stringify(msg));
+
 		  	compile_results_and_dispay(msg);
 		  });
 
@@ -92,8 +94,6 @@
 
 		  	var keyword = document.getElementById("text_field").value;
 		  	var hits = document.getElementById("nbr_results").value;
-
-		  	console.log(hits);
 
 		  	// radio buttons -- filter
 		  	var filter = null;		  	

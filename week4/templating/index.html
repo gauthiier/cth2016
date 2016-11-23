@@ -9,6 +9,16 @@
 			#inputs {
 				width: 30em;
 			}
+
+			.book {
+				padding: 10px;
+				border-bottom: 1px solid red;
+			}
+
+			#books {
+				width: 30em;
+			}
+
 		</style>
 		<!-- SCRIPTS -->
 		<!-- import handlebars -->		
@@ -26,14 +36,20 @@
 				<input id="nbr_books" type="number" value="2" min="1" max="5">
 			</div>
 
-			<!-- 
+			 
 			<div id="books">
 				<script id="books-template" type="text/x-handlebars-template">
 					{{#each this}}
+					<div class="book">
+						<div class="title">Title: {{title}}</div>
+						<div class="author">Author: {{author}}</div>
+						<div class="price">Price: {{price}}</div>
+						<div class="kind">Kind: {{kind}}</div>
+					</div>
 					{{/each}}
 				</script>
 			</div>
-			-->
+			
 
 		</div>		
 
@@ -51,11 +67,21 @@
 
 		  // when receiving a custom message form the server
 		  socket.on('all the books we have', function(msg) {
-		  	console.log('all the books: ' + msg);
+
+		  	console.log('all the books: ' + JSON.stringify(msg));
+
+		  	compile_results_and_display(msg);
+
 		  });
 
-		  /*
-		  function compile_results_and_dispay(results) {
+		  function get_books() {
+
+		  	socket.emit('give some books', "nothing");
+
+		  }
+
+		  
+		  function compile_results_and_display(results) {
 
 		  	var template_script = $("#books-template").html(); 
 
@@ -66,7 +92,7 @@
 			$('#books').append(template(results));
 
 		  }
-		  */
+		  
 
 		</script>		
 	</body>
