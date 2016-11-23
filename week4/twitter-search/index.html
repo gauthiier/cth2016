@@ -1,0 +1,133 @@
+<html>
+	<head>	
+		<title>SEARCH TWITTER</title>	
+		<style>
+			/* CSS Styling */
+			#frame {
+				width: 100%;
+			}
+			#inputs{
+				width: 50em;
+				bborder: 1px solid black;
+			}
+			.hit {
+				bborder: 1px solid green;
+				display: inline-block;
+				padding: 1em;
+				max-width: 400px;
+				vertical-align: top;
+			}
+			.tweet_image img {
+				max-width: 400px;
+				margin: 0.3em;
+			}
+
+		</style>
+		<!-- SCRIPTS -->
+		<!-- import handlebars -->		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<!-- import jquery -->		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>		
+	</head>
+	<body>		
+		<!-- HTML -->
+		<label>SEARCH TWITTER</label>
+		<div id="frame">
+			<!-- inputs for the search to send to server -->
+			<div id="inputs">
+				<label>keyword: </label>
+				<input id="text_field" type="text"/>
+				<label>results </label>
+				<input id="nbr_results" type="number" value="20" min="1" max="50">
+				<label>filters: </label>
+				<label>images </label>
+				<input id="radio_images" type="radio" checked/>
+				<label>links </label>
+				<input id="radio_links" type="radio"/>
+				<label>videos </label>
+				<input id="radio_videos" type="radio"/>				
+				<!-- search button -->
+				<input type="button" value="Search" onclick="search();"/>
+			</div>
+
+			<div id="results">
+				<script id="results-template" type="text/x-handlebars-template">
+					{{#each this}}
+					<div class="hit">
+						<div class='tweet_text'>{{text}}</div>
+						{{#if images}}
+							{{#each images}}
+								<div class='tweet_image'>
+									<img src={{this}} />
+								</div>
+							{{/each}}		
+						{{/if}}
+					</div>
+					{{/each}}
+				</script>
+			</div>
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  // when receiving a custom message form the server ('search_twitter_results')
+		  socket.on('search_twitter_results', function(msg) {
+		  	console.log('search_twitter_results: ' + msg);
+		  	compile_results_and_dispay(msg);
+		  });
+
+		  // when search button is pressed
+		  function search() {
+
+		  	var keyword = document.getElementById("text_field").value;
+		  	var hits = document.getElementById("nbr_results").value;
+
+		  	console.log(hits);
+
+		  	// radio buttons -- filter
+		  	var filter = null;		  	
+		  	if(document.getElementById("radio_images").checked) {
+		  		filter = "images";
+		  		document.getElementById("radio_images").checked = false;
+		  	} else if (document.getElementById("radio_links").checked) {
+				filter = "links";
+				document.getElementById("radio_links").checked = false;
+			} else if (document.getElementById("radio_videos").checked) {
+				filter = "videos";
+				document.getElementById("radio_videos").checked = false;
+			}
+
+			// create search parameters that will be sent to the server
+		  	var search_params = {keyword_value: keyword, nbr_hits: hits, filter_value: filter}
+
+		  	// send request to the server
+		  	socket.emit('search_twitter', search_params);
+
+		  }
+
+		  function compile_results_and_dispay(results) {
+
+		  	var template_script = $("#results-template").html(); 
+
+			var template = Handlebars.compile(template_script);
+
+			$('.hit').remove();
+
+			$('#results').append(template(results));
+
+		  }
+
+		</script>		
+	</body>
+</html>
