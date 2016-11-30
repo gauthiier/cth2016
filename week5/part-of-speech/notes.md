@@ -9,3 +9,5 @@ Example: [http://parts-of-speech.info](http://parts-of-speech.info)
 [Phrase structure grammar](https://en.wikipedia.org/wiki/Phrase_structure_grammar)
 
 [Parse Tree](https://en.wikipedia.org/wiki/Parse_tree)
+
+### [pos: fasttag part of speech tagger implementation](https://www.npmjs.com/package/pos)
