@@ -1,0 +1,16 @@
+{
+  "name": "tf-idf",
+  "version": "1.0.0",
+  "description": "looks if a word is part of the topic  of a list of document",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "natural": "^0.4.0",
+    "socket.io": "^1.7.1"
+  }
+}

@@ -1,0 +1,103 @@
+<html>
+	<head>	
+		<title>Bookstore (remember?!)</title>	
+		<style>
+
+			/* CSS Styling */
+
+			#frame {
+				width: 100%;
+			}
+			#inputs {
+				width: 30em;
+			}
+
+			.book {
+				padding: 10px;
+				border-bottom: 1px dashed red;
+			}
+
+			#books {
+				width: 30em;
+			}
+
+			.title_style {
+				font-weight: bold;
+				font-size: 120;
+			}
+
+
+		</style>
+		<!-- SCRIPTS -->
+		<!-- import handlebars -->		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<!-- import jquery -->		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>				
+	</head>
+	<body>		
+		<!-- HTML -->
+		<label>Bookstore (remember?!)</label>
+		<div id="frame">
+
+			<div id="inputs">
+				<input type="button" value="Get some books" onclick="get_books();"/>
+				<input id="nbr_books" type="number" value="2" min="1" max="5">
+			</div>
+
+			 
+			<div id="books">
+				<script id="books-template" type="text/x-handlebars-template">
+					{{#each this}}
+					<div class="book">
+						<div class="title_style">Title: {{title}}</div>
+						<div class="author_style">Author: {{author}}</div>
+						<div class="price_style">Price: {{price}}</div>
+						<div class="kind_style">Kind: {{kind}}</div>
+					</div>
+					{{/each}}
+				</script>
+			</div>
+			
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  // when receiving a custom message form the server
+		  socket.on('all the books we have', function(msg) {
+		  	console.log('all the books: ' + JSON.stringify(msg));
+
+		  	compile_results_and_display(msg);
+		  });
+
+		  function get_books() {
+		  	socket.emit('give some books', "nothing");
+		  }
+
+		  
+		  function compile_results_and_display(results) {
+
+		  	var template_script = $("#books-template").html(); 
+
+			var template = Handlebars.compile(template_script);
+
+			//$('.book').remove();
+
+			$('#books').append(template(results));
+
+		  }
+		  
+
+		</script>		
+	</body>
+</html>

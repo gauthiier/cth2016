@@ -1,0 +1,103 @@
+<html>
+	<head>	
+		<meta charset="utf-8" /> 
+		<title>Term Frequency–Inverse Document Frequency</title>	
+		<style>
+			/* CSS Styling */
+			.frame {
+				width: 30em;
+				display: inline-block;
+			}
+			textarea {
+				width: 100%;
+				border: 1px solid #888;
+				padding: 3px;
+			}
+			.measure {
+				padding-left:3em
+			}
+		</style>
+	</head>
+	<body>		
+		<!-- HTML -->		
+		<div class="frame">
+			<label>INPUT TEXT 0</label>
+			<textarea id="input_text_0" rows="35" cols="65">
+				In information retrieval, tf–idf, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.[1] It is often used as a weighting factor in information retrieval and text mining. The tf-idf value increases proportionally to the number of times a word appears in the document, but is offset by the frequency of the word in the corpus, which helps to adjust for the fact that some words appear more frequently in general.
+
+				Variations of the tf–idf weighting scheme are often used by search engines as a central tool in scoring and ranking a document's relevance given a user query. tf–idf can be successfully used for stop-words filtering in various subject fields including text summarization and classification.
+
+				One of the simplest ranking functions is computed by summing the tf–idf for each query term; many more sophisticated ranking functions are variants of this simple model.				
+			</textarea>			
+		</div>		
+		<div class="frame">
+			<label>INPUT TEXT 1</label>
+			<textarea id="input_text_1" rows="35" cols="65">
+				The TB-303 has a single audio oscillator, which may be configured to produce either a sawtooth wave or a square wave. The square wave is derived from the sawtooth waveform using a simple, single-transistor waveshaping circuit.[1] This produces a sound that is subtly different from the square waveform created by the dedicated hardware found in most analog synthesizers. It also includes a simple envelope generator, with a decay control only. A lowpass filter is also included, with -24dB per octave attenuation, and controls for cutoff frequency, resonance, and envelope modulation parameters. It is a common misconception that the filter is a 3 pole 18 dB per octave design when in fact it is 4-pole 24 dB per octave.[2]
+
+				The TB-303 sequencer has some unique features that contribute to its characteristic sound. During the programming of a sequence, the user can determine whether a note should be accented, and whether it should employ portamento, a smooth transition to the following note. The portamento circuitry employs a fixed slide time, meaning that whatever the interval between notes, the time taken to reach the correct pitch is always the same. The accent circuitry, as well as increasing the amplitude of a note, also emphasizes the EG filter's cutoff and resonance, resulting in a distinctive, hollow "wow" sound at higher resonance settings. Roland referred to this as "gimmick" circuitry.[3]
+
+				The instrument also features a 'simple' step-time method for entering note data into the 16-step programmable sequencer. This was notoriously difficult to use, and would often result in entering a different sequence than the one that had been intended. Some users also take advantage of a low voltage failure mode, wherein patterns that are programmed in memory get completely scrambled if the batteries are removed for a time.			
+			</textarea>			
+		</div>		
+		<div class="frame">
+			<label>INPUT TEXT 2</label>
+			<textarea id="input_text_2" rows="35" cols="65">
+				1960s to 1970s
+
+				From 1955 to 1965, Guattari edited and contributed to La Voie Communiste (Communist Way), a Trotskyist newspaper.[2] He supported anti-colonialist struggles as well as the Italian Autonomists. Guattari also took part in the G.T.P.S.I., which gathered many psychiatrists at the beginning of the sixties and created the Association of Institutional Psychotherapy in November 1965. It was at the same time that he founded, along with other militants, the F.G.E.R.I. (Federation of Groups for Institutional Study & Research) and its review Recherche (Research), working on philosophy, mathematics, psychoanalysis, education, architecture, ethnology, etc. The F.G.E.R.I. came to represent aspects of the multiple political and cultural engagements of Guattari: the Group for Young Hispanics, the Franco-Chinese Friendships (in the times of the people's communes), the opposition activities with the wars in Algeria and Vietnam, the participation in the M.N.E.F., with the U.N.E.F., the policy of the offices of psychological academic aid (B.A.P.U.), the organisation of the University Working Groups (G.T.U.), but also the reorganizations of the training courses with the Centers of Training to the Methods of Education Activities (C.E.M.E.A.) for psychiatric male nurses, as well as the formation of Friendly Male Nurses (Amicales d'infirmiers) (in 1958), the studies on architecture and the projects of construction of a day hospital for "students and young workers".
+
+				In 1967, he appeared as one of the founders of OSARLA (Organization of solidarity and Aid to the Latin-American Revolution). In 1968, Guattari met Daniel Cohn-Bendit, Jean-Jacques Lebel, and Julian Beck. He was involved in the large-scale French protests of 1968, starting from the Movement of March 22. It was in the aftermath of 1968 that Guattari met Gilles Deleuze at the University of Vincennes and began to lay the ground-work for the soon to be infamous Anti-Oedipus (1972), which Michel Foucault described as "an introduction to the non-fascist life" in his preface to the book. In 1970, he created fr:CERFI (Center for the Study and Research of Institutional Formation), which developed the approach explored in the Recherches journal. In 1973, Guattari was tried and fined for committing an "outrage to public decency" for publishing an issue of Recherches on homosexuality.[3] In 1977, he created the CINEL for "new spaces of freedom" before joining in the 1980s the ecological movement with his "ecosophy".
+			</textarea>			
+		</div>		
+		<div class="frame">
+			<div id="inputs">
+				<label>Term: </label>
+				<input id="text_field" type="text"/>
+				<input type="button" value="Check" onclick="check_term();"/>
+			</div>			
+			<label>Results: </label>
+			<div id="results"></div>			
+		</div>		
+
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  socket.on('term results', function(msg) {
+		  	update_results(msg);
+		  });
+
+		  function check_term() {
+		  	var term = document.getElementById('text_field').value;
+		  	var text_0 = document.getElementById('input_text_0').value;
+		  	var text_1 = document.getElementById('input_text_1').value;
+		  	var text_2 = document.getElementById('input_text_2').value;
+		  	var array_texts = [text_0, text_1, text_2];
+		  	socket.emit('measure term', {term: term, documents: array_texts});
+		  }
+
+		  function update_results(results) {
+
+		  	var result_text = 'term: ' + results.term + '<br/>';
+		  	result_text += '<div class="measure">' + 'TEXT 0: ' + results.measures[0] + '</div>';
+		  	result_text += '<div class="measure">' + 'TEXT 1: ' + results.measures[1] + '</div>';
+		  	result_text += '<div class="measure">' + 'TEXT 2: ' + results.measures[2] + '</div>';
+
+		  	document.getElementById('results').innerHTML = result_text;
+
+		  }
+
+		</script>		
+	</body>
+</html>

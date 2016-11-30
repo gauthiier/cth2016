@@ -1,0 +1,101 @@
+<html>
+	<head>	
+		<title>TENDER BUTTONS -- RENDER MUTTONS</title>	
+		<style>
+			/* CSS Styling */
+			.frame {
+				width: 30em;
+				display: inline-block;
+			}
+			textarea {
+				width: 100%;
+				border: 1px solid #888;
+				padding: 3px;
+			}
+		</style>
+	</head>
+	<body>		
+		<!-- HTML -->		
+		<div class="frame">
+			<label>TENDER BUTTONS</label>
+			<!-- text area where the conversation is displayed -->
+			<textarea id="tender_buttons" text="..." rows="65" cols="65">...</textarea>
+			
+			<!-- inputs from human to send to server -->
+			<div>
+				<input type="button" value="Markov Generate" onclick="generate_text();"/>
+				<label>nbr. verses </label>
+				<input id="tender_buttons_verses" type="number" min="1" max="25" value="10"/>
+				<label>verses width</label>
+				<input id="tender_buttons_verses_width" type="number" min="20" max="100" value="70"/>	
+				<label>min. score </label>
+				<input id="tender_buttons_score" type="number" min="5" max="100" value="50"/>		
+			</div>
+
+		</div>		
+
+		<div class="frame">
+			<label>RENDER MUTTONS</label>
+			<!-- text area where the conversation is displayed -->
+			<textarea id="render_muttons" text="..." rows="65" cols="65">...</textarea>			
+
+			<!-- inputs from human to send to server -->
+			<div>
+				<input type="button" value="Clear" onclick="clear_text();"/>
+			</div>
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // throbber timer
+		  var timer = null;
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	socket.emit('request bare text', 'n/a');
+		  });
+
+		  socket.on('bare text', function(msg) {
+		  	document.getElementById('tender_buttons').value = msg;
+		  });
+
+		  socket.on('render muttons', function(msg) {
+
+		  	if(timer) {
+		  		clearInterval(timer);
+		  		timer = null;
+		  	}
+
+		  	document.getElementById('render_muttons').value = msg;
+
+		  });
+
+		  function clear_text() {
+		  	document.getElementById('render_muttons').value = '';
+		  }
+
+		  function generate_text() {
+
+		  	clear_text();
+
+		  	var text = document.getElementById('tender_buttons').value;
+		  	var verses = document.getElementById('tender_buttons_verses').value;
+		  	var width = document.getElementById('tender_buttons_verses_width').value;
+		  	var score = document.getElementById('tender_buttons_score').value;
+		  	socket.emit('request render muttons', {input: text, nbr_verse: verses, min_score: score, width_verses: width });
+
+		    timer = setInterval(function() {
+		    	document.getElementById('render_muttons').value = document.getElementById('render_muttons').value + '.';
+		    }, 1000);
+
+		  }
+
+		</script>		
+	</body>
+</html>

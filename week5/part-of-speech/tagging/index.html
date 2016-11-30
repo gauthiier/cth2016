@@ -1,0 +1,123 @@
+<html>
+	<head>	
+		<title>POS tagging</title>	
+		<style>
+			/* CSS Styling */
+			.frame {
+				width: 30em;
+				display: inline-block;
+			}
+			textarea {
+				width: 100%;
+				border: 1px solid #888;
+				padding: 3px;
+			}
+		</style>
+	</head>
+	<body>		
+		<!-- HTML -->		
+		<div class="frame">
+			<label>INPUT TEXT</label>
+			<textarea id="input_text" rows="35" cols="65"></textarea>			
+		</div>		
+
+		<div class="frame">
+			<label>OUPUT TEXT</label>
+			<textarea id="output_text" rows="35" cols="65"></textarea>			
+		</div>		
+
+		<div class="frame">
+			<label>LEGEND</label>
+			<p>
+			CC Coord Conjuncn<br />
+			CD Cardinal number<br />
+			DT Determiner<br />
+			EX Existential there<br />
+			FW Foreign Word<br />
+			IN Preposition<br />
+			JJ Adjective<br />
+			JJR Adj., comparative<br />
+			JJS Adj., superlative<br />
+			LS List item marker<br />
+			MD Modal<br />
+			NN Noun, sing. or mass<br />
+			NNP Proper noun, sing.<br />
+			NNPS Proper noun, plural<br />
+			NNS Noun, plural<br />
+			POS Possessive ending<br />
+			PDT Predeterminer<br />
+			PP$ Possessive pronoun<br />
+			PRP Personal pronoun<br />
+			RB Adverb<br />
+			RBR Adverb, comparative<br />
+			RBS Adverb, superlative<br />
+			RP Particle<br />
+			SYM Symbol<br />
+			TO to<br />
+			UH Interjection<br />
+			VB verb, base form<br />
+			VBD verb, past tense<br />
+			VBG verb, gerund<br />
+			VBN verb, past part<br />
+			VBP Verb, present<br />
+			VBZ Verb, present<br />
+			WDT Wh-determiner<br />
+			WP Wh pronoun<br />
+			WP$ Possessive-Wh<br />
+			WRB Wh-adverb<br />
+			, Comma<br />
+			. Sent-final punct<br />
+			: Mid-sent punct<br />
+			$ Dollar sign<br />
+			# Pound sign<br />
+			" quote<br />
+			( Left paren<br />
+			) Right paren<br />
+			</p>
+		</div>
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // timer
+		  var timer = setInterval(function() {
+		  		tag_text();
+		    }, 1500);
+
+		  var old_text = '';
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  socket.on('tagged text', function(msg) {
+		  	update_output(msg);
+		  });
+
+		  function tag_text() {
+		  	var text = document.getElementById('input_text').value;
+		  	if(text != old_text) {
+		  		socket.emit('request tag text', text);
+		  		old_text = text;	
+		  	}		  	
+		  }
+
+		  function update_output(tagged_text) {
+		  	var text = document.getElementById('input_text').value;
+		  	var output_text = text;
+		  	for(var tagged_word of tagged_text) {
+		  		var word = tagged_word[0];
+		  		var tag = tagged_word[1];
+		  		output_text = output_text.replace(word, word + '\\' + tag);
+		  	}
+		  	document.getElementById('output_text').value = output_text;
+		  }
+
+		</script>		
+	</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "pos-tagging",
+  "version": "1.0.0",
+  "description": "tags words from textarea",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pos": "^0.4.2",
+    "socket.io": "^1.7.1"
+  }
+}

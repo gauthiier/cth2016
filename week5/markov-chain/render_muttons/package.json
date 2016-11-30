@@ -1,0 +1,18 @@
+{
+  "name": "render_muttons",
+  "version": "1.0.0",
+  "description": "markov chain text generation based on Gertrude Steiner's Tender Buttons",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.4",
+    "express": "^4.14.0",
+    "markov-strings": "^1.3.2",
+    "socket.io": "^1.7.1",
+    "word-wrap": "^1.1.0"
+  }
+}
