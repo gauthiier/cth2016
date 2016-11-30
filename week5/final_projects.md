@@ -38,6 +38,30 @@ We’ll continue on each others work, which is quite easy since we’re housemat
 
 ---------
 
+__Team members:__ Inés & Johnny
+
+__Name of the project:__
+
+Literacy Links
+
+__What is the concept:__
+
+We will program an educational program to assist teachers in creating reading resources for their students. The program will intake text from a user interface and the alter the text, swapping out words for other words using a thesaurus API. It will then output a text that should have the same message, just using different words. 
+
+__Inspiration / examples (links, url if applicable):__
+
+We were inspired by a site called Newsela, which posts news articles at different reading levels for students. Unfortunately, however, this process isn't automated and requires individuals to read and then rewrite the articles. We hope to create a program that will automate this process in order to make it quicker and applicable to any article, not only the ones selected by the Newsela writers.
+
+__Which technology / method are you planning on using:__
+
+We will use html to set up an interface and then javascript to create the physical program. The program will take in a plain text file and then feed the individual words into an array. Then we will use loops to go through the array and then determine what kinds of words are in each position. If the words are adjectives, adverbs, or verbs, we will utilize the thesaurus API to swap out the words with other words.  
+
+__Who is doing what in the team:__
+
+As of right now, Johnny will be in charge of the interface and I will be in charge of the program that substitutes words. 
+
+---------
+
 __Team members:__ Cecilie & Joanna
 
 __Name of the project: __
@@ -88,34 +112,26 @@ Not specified yet at this moment.
 
 ---------
 
+Team members:
+
+Name of the project:
+
+What is the concept:
+
+Inspiration / examples (links, url if applicable):
+
+Which technology / method are you planning on using:
+
+Who is doing what in the team:
+
+---------
+
+
 
 
 
 ### Group 02
 
-__Team members:__ Inés & Johnny
-
-__Name of the project:__
-
-Literacy Links
-
-__What is the concept:__
-
-We will program an educational program to assist teachers in creating reading resources for their students. The program will intake text from a user interface and the alter the text, swapping out words for other words using a thesaurus API. It will then output a text that should have the same message, just using different words. 
-
-__Inspiration / examples (links, url if applicable):__
-
-We were inspired by a site called Newsela, which posts news articles at different reading levels for students. Unfortunately, however, this process isn't automated and requires individuals to read and then rewrite the articles. We hope to create a program that will automate this process in order to make it quicker and applicable to any article, not only the ones selected by the Newsela writers.
-
-__Which technology / method are you planning on using:__
-
-We will use html to set up an interface and then javascript to create the physical program. The program will take in a plain text file and then feed the individual words into an array. Then we will use loops to go through the array and then determine what kinds of words are in each position. If the words are adjectives, adverbs, or verbs, we will utilize the thesaurus API to swap out the words with other words.  
-
-__Who is doing what in the team:__
-
-As of right now, Johnny will be in charge of the interface and I will be in charge of the program that substitutes words. 
-
----------
 
 __Team members:__ Julia & Johanna
 
@@ -185,7 +201,7 @@ The user will be able to plan a route with the app. The user inputs a place of d
 
 __Inspiration / examples (links, url if applicable):__
 
-???
+
 
 __Which technology / method are you planning on using:__
 
@@ -201,9 +217,46 @@ __Which technology / method are you planning on using:__
 
 __Who is doing what in the team:__
 
-???
 
 ---------
+
+Team members: 
+
+Annabel & Maxim
+
+Name of the project:
+
+Information website
+
+What is the concept:
+
+Inspiration / examples (links, url if applicable):
+
+Which technology / method are you planning on using:
+
+Who is doing what in the team:
+
+---------
+
+Team members: 
+
+Cassandra & Léna
+
+Name of the project:
+
+
+What is the concept:
+
+Personality Quiz -- 
+
+Inspiration / examples (links, url if applicable):
+
+
+Which technology / method are you planning on using:
+
+Markov chains
+
+Who is doing what in the team:
 
 
 

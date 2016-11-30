@@ -10,7 +10,7 @@ var server = require('http').Server(app);
 // import socket.io
 var io = require('socket.io')(server);	// npm install --save socket.io
 
-// import socket.io
+// import pos -- 
 var pos = require('pos');               // npm install --save pos
 
 function tag_text(text) {
