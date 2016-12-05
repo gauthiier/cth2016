@@ -2,11 +2,11 @@
 
 ### Group 01
 
-__Team members:__ 
+__Team members:__
 
 Rahul & Randy
 
-__Name of the project: __
+__Name of the project:__
 
 Let’s meet..
 
@@ -64,7 +64,7 @@ As of right now, Johnny will be in charge of the interface and I will be in char
 
 __Team members:__ Cecilie & Joanna
 
-__Name of the project: __
+__Name of the project:__
 
 Harry Potter Fortune Quiz
 
@@ -112,22 +112,29 @@ Not specified yet at this moment.
 
 ---------
 
-Team members:
+__Team members:__ Lenka, Vivien and Laura
 
-Name of the project:
+__Name of the project:__ 
 
-What is the concept:
+Anti-procrastination bot
 
-Inspiration / examples (links, url if applicable):
+__What is the concept:__
 
-Which technology / method are you planning on using:
+A code that you can use as an anti-procrastination bot. It is going to have multiple steps, the first one is a template that you need to fill out to let the bot know how many words you need to type and what the deadline is for a paper. Then, it is able to read how far along you are with your paper. Based on the deadline the bot can change the background music; study-music when you need to study, or 'break'-music (which you can set up yourself) for when you can take a break. We're exploring the idea of the code also being able to read out what you're doing at the moment, for example Facebooking, and then reminding you of working on your paper by changing the music into study-music. The genre of music functions as a reminder from the code about your paper. 
 
-Who is doing what in the team:
+__Inspiration / examples (links, url if applicable):__
+
+We got the inspiration from combining the ideas that Vivien and Laura had about 'making' music with code and Lenka her, very handy, idea of creating an anti-procrastination device for herself.
+
+__Which technology / method are you planning on using:__
+
+We're going to use the methods we learned in class, java and html. Lenka does have some experience with other programming, so we might diverge a bit as well. 
+
+__Who is doing what in the team:__
+
+We're trying to make sure we all do it together, we're very positive about that working out. 
 
 ---------
-
-
-
 
 
 ### Group 02
@@ -161,7 +168,7 @@ __Team members:__
 
 Martin & Bram
 
-__Name of the project: __
+__Name of the project:__
 
 Spotify Randomizer
 
@@ -171,7 +178,6 @@ For this final project we would like to create a randomizer for Spotify where yo
 
 __Inspiration / examples (links, url if applicable):__
 
-???
 
 __Which technology / method are you planning on using:__
 
@@ -180,7 +186,6 @@ For this, we would have to request the Spotify API, which will enable us to obta
 
 __Who is doing what in the team:__
 
-???
 
 ---------
 
@@ -202,7 +207,6 @@ The user will be able to plan a route with the app. The user inputs a place of d
 __Inspiration / examples (links, url if applicable):__
 
 
-
 __Which technology / method are you planning on using:__
 
 - Using the Google Maps API to create a route planner.
@@ -220,43 +224,53 @@ __Who is doing what in the team:__
 
 ---------
 
-Team members: 
+__Team members:__ 
 
 Annabel & Maxim
 
-Name of the project:
+__Name of the project:__
 
-Information website
+chat platform
 
-What is the concept:
+__What is the concept:__
 
-Inspiration / examples (links, url if applicable):
+The concept is to make a platform where people can chat to each other via text and also video.
 
-Which technology / method are you planning on using:
+__Inspiration / examples (links, url if applicable):__
 
-Who is doing what in the team:
+www.chatroulette.com and assignment 3
+
+__Which technology / method are you planning on using:__
+
+javascript, HTML, socket.io
+
+__Who is doing what in the team:__
+
+everything together because we’re only with two
 
 ---------
 
-Team members: 
+__Team members:__
 
 Cassandra & Léna
 
-Name of the project:
+__Name of the project:__
 
+Random Quizz
 
-What is the concept:
+__What is the concept:__
 
-Personality Quiz -- 
+This is an HTLM page displayed thanks to a localhost with proposes the user to complete a quizz. This quizz is built randomly each time the user submits a question. For instance questions are made following a pattern like « Wh-word + be + your + adjective + noun ». Answers will be displayed randomly too. Sometimes it will be sentences builded by the program (and look like an exquisite cadaver) and sometimes the choice of answer will be determined by the questions itself. For instance if noun = « color » the computer will display «  blue, red, green » as choices. We would like to make something humorous. Idea of question may be what the user would do in the situation stated by the program. After around 10 questions the program display a « profile » to the user in function of his choices. This profile will be a small paragraph also builded by chance. We would like to add images related to the topic of the question. Maybe we will use a database of images to match the key words of the questions with a research on the data base.
 
-Inspiration / examples (links, url if applicable):
+__Inspiration / examples (links, url if applicable):__
 
+We can found a lot of « personality quizzes » on the Internet. 
 
-Which technology / method are you planning on using:
+__Which technology / method are you planning on using:__
 
-Markov chains
+local server, random text generation (inspired by the letters we have coded for week 3) with arrays and chance.js
 
-Who is doing what in the team:
+__Who is doing what in the team:__
 
 
 
