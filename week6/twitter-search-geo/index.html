@@ -1,0 +1,139 @@
+<html>
+	<head>	
+		<title>SEARCH TWITTER</title>	
+		<style>
+			/* CSS Styling */
+			#frame {
+				width: 100%;
+			}
+			#inputs{
+				width: 50em;
+				bborder: 1px solid black;
+			}
+			#map {
+				height: 500px;
+				width: 100%;
+			}
+
+		</style>
+		<!-- SCRIPTS -->
+		<!-- import jquery -->		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>		
+	</head>
+	<body>		
+		<!-- HTML -->
+		<label>SEARCH TWITTER</label>
+		<div id="frame">
+			<!-- inputs for the search to send to server -->
+			<div id="inputs">
+				<label>keyword: </label>
+				<input id="text_field" type="text"/>
+				<label>results </label>
+				<input id="nbr_results" type="number" value="20" min="1" max="50">
+				<input id="search_button" type="button" value="Search" onclick="search();">
+			</div>
+
+			<div id="map"></div>
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // the map object -- (which needs to be initialised -- see init_map())
+		  var map = null;
+
+		  // all maps markers
+		  var markers = [];
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  // when receiving a custom message form the server ('search_twitter_results')
+		  socket.on('search_twitter_results', function(msg) {
+		  	//console.log('search_twitter_results: ' + JSON.stringify(msg));
+		  	geolocate_results_and_dispay(msg, map);
+		  });
+
+		  // when search button is pressed
+		  function search() {
+
+		  	var keyword = document.getElementById("text_field").value;
+		  	var hits = document.getElementById("nbr_results").value;
+			// create search parameters that will be sent to the server
+		  	var search_params = {keyword_value: keyword, nbr_hits: hits};
+
+		  	// send request to the server
+		  	socket.emit('search_twitter', search_params);
+
+		  }
+
+		  function init_map() {
+			map = new google.maps.Map(document.getElementById('map'), {
+	          zoom: 5,
+	          center: {lat: 52.373629, lng: 4.887848} // Amsterdam
+	        });
+		  }
+
+		  function add_marker_information(marker) {
+
+		  	markers.push(marker);
+
+			google.maps.event.addListener(marker, 'click', (function(marker) {
+
+				return function(evt) {
+
+					var content = marker.getTitle();
+					var info = google.maps.InfoWindow();
+					info.setContent(content);
+					info.open(a_map, marker);
+
+				}
+
+			})(marker));
+
+
+		  }
+
+		  function geolocate_results_and_dispay(results, a_map) {
+
+		  	var geocoder = new google.maps.Geocoder();		  	
+
+		  	for(r of results) {
+
+		  		//console.log(r.location);
+
+		  		geocoder.geocode({'address': r.location}, function(geo_results, status) {
+
+		  			if(status === 'OK') {
+
+		  				var marker = new google.maps.Marker({
+		  					map: a_map,
+		  					position: geo_results[0].geometry.location,
+		  					title: r.tweet_text
+		  				});
+
+		  				add_marker_information(marker); // does not work...
+
+		  			} else {
+		  				console.log('No geocode for ' + r.location);
+		  			}		  			
+
+		  		});
+		  	}
+
+
+		  }
+
+		</script>	
+
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7-OtKvhvY5W8GGrbY8yUIq4JU3vHGPw&callback=init_map">
+    </script>	
+	</body>
+</html>

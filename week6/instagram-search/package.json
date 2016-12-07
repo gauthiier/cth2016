@@ -1,0 +1,16 @@
+{
+  "name": "instagram-search",
+  "version": "1.0.0",
+  "description": "basic search with instagram api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "nodegram": "^0.2.3",
+    "socket.io": "^1.7.1"
+  }
+}

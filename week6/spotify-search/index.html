@@ -1,0 +1,113 @@
+<html>
+	<head>	
+		<title>SEARCH SPOTIFY</title>	
+		<style>
+			/* CSS Styling */
+			#frame {
+				width: 100%;
+			}
+			#inputs{
+				width: 50em;
+			}
+			.track {
+				bborder: 1px solid green;
+				display: inline-block;
+				padding: 1em;
+				max-width: 400px;
+				vertical-align: top;
+			}			
+			.track img {
+				max-width: 400px;
+				margin: 0.3em;				
+			}
+		</style>
+		<!-- SCRIPTS -->
+		<!-- import handlebars -->		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<!-- import jquery -->		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>						
+	</head>
+	<body>		
+		<!-- HTML -->
+		<label>SEARCH SPOTIFY</label>
+		<div id="frame">
+			<!-- inputs for the search to send to server -->
+			<div id="inputs">
+				<label>keyword: </label>
+				<input id="keyword_field" type="text"/>
+				<input id="search_button" type="button" value="Search" onclick="search();">
+			</div>
+
+			<div id="tracks">
+				<script id="tracks-template" type="text/x-handlebars-template">
+					{{#each this}}
+					<div class="track">
+						<div class="Artist">Artist: {{artist}}</div>
+						<div class="Album">Album: {{album}}</div>
+						<div class="Image"><img src={{album_url}} /></div>
+					</div>
+					{{/each}}
+				</script>
+			</div>			
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  // when receiving a custom message form the server ('search_SPOTIFY_results')
+		  socket.on('search_spotify_results', function(msg) {
+		  	console.log('search_spotify_results: ' + JSON.stringify(msg));
+
+		  	var filtered_results = [];
+
+		  	for(t of msg) {
+		  		// console.log('\n\n\n\n\n --------------------')
+		  		// console.log(t);
+		  		filtered_results.push({
+		  			artist: t.artists[0].name, 
+		  			album: t.album.name,
+		  			album_url: t.album.images[0].url
+		  		});
+		  	}
+
+		  	compile_results_and_dispay(filtered_results);
+
+		  });
+
+		  // when search button is pressed
+		  function search() {
+
+		  	var input_keyword = document.getElementById('keyword_field').value;
+
+		  	socket.emit('search_spotify', {keyword: input_keyword});
+
+		  }
+
+		  function compile_results_and_dispay(results) {
+
+		  	var template_script = $("#tracks-template").html(); 
+
+			var template = Handlebars.compile(template_script);
+
+			$('.track').remove();
+
+			$('#tracks').append(template(results));
+
+		  }
+
+
+
+		</script>	
+    </script>	
+	</body>
+</html>

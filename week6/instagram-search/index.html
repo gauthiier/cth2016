@@ -1,0 +1,69 @@
+<html>
+	<head>	
+		<title>SEARCH INSTAGRAM</title>	
+		<style>
+			/* CSS Styling */
+			#frame {
+				width: 100%;
+			}
+			#inputs{
+				width: 50em;
+				bborder: 1px solid black;
+			}
+			#map {
+				height: 500px;
+				width: 100%;
+			}
+
+		</style>
+		<!-- SCRIPTS -->
+		<!-- import jquery -->		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>		
+	</head>
+	<body>		
+		<!-- HTML -->
+		<label>SEARCH INSTAGRAM</label>
+		<div id="frame">
+			<!-- inputs for the search to send to server -->
+			<div id="inputs">
+				<label>user-id: </label>
+				<input id="user_id_field" type="text"/>				
+				<label>keyword: </label>
+				<input id="keyword_field" type="text"/>
+				<input id="search_button" type="button" value="Search" onclick="search();">
+			</div>
+
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// connect to localhost on its port (see server.js -- 8088)
+		  var socket = io().connect('http://localhost:8088');
+
+		  // when connecting 
+		  socket.on('connect', function (data) {
+		  	console.log('connected');
+		  });
+
+		  // when receiving a custom message form the server ('search_instagram_results')
+		  socket.on('search_instagram_results', function(msg) {
+		  	console.log('search_instagram_results: ' + JSON.stringify(msg));
+		  });
+
+		  // when search button is pressed
+		  function search() {
+
+		  	var input_keyword = document.getElementById('keyword_field').value;
+		  	var input_user_id = document.getElementById('user_id_field').value;
+
+		  	socket.emit('search_instagram', {keyword: input_keyword, user_id: input_user_id});
+
+		  }
+
+
+		</script>	
+    </script>	
+	</body>
+</html>
