@@ -83,6 +83,49 @@ function search_twitter(keyword_value, nbr_hits, filter_value) {
   });
 }
 
+function timeline_user(username, nbr_hits) {
+
+  var twitter_search_params = {screen_name: username, count: nbr_hits};
+
+  client.get('statuses/user_timeline', twitter_search_params, function(error, tweets, response) {
+
+    var results = [];
+
+    if(error) {
+      console.log(error);
+      return;
+    }
+
+    for(tweet of tweets) {
+
+      console.log(tweet);
+
+      var r = {text: tweet.text};
+
+      if(tweet.extended_entities && tweet.extended_entities.media) {
+
+        r.images = [];
+
+        for(media of tweet.extended_entities.media) {
+
+          if(media.type == 'photo')         
+
+            r.images.push(media.media_url);       
+
+        }       
+      }
+
+      results.push(r);
+
+    }
+
+    // send results to client
+    io.emit('search_twitter_results', results);       
+
+  });
+  
+}
+
 /* ----------------------------------
 	Server and Socket Configuration
 --------------------------------------*/
@@ -105,6 +148,8 @@ io.on('connection', function(socket) {
   	console.log('searching twitter with: ' + msg.toString());
 
     search_twitter(msg.keyword_value, msg.nbr_hits, msg.filter_value);
+
+    //timeline_user(msg.keyword_value, msg.nbr_hits);
 
   });
 

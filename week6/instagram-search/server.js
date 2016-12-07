@@ -69,6 +69,10 @@ function search_for_username(username, callback) {
 
     instagram.get('/users/search', {q: username}).then(function(res, pag) {
 
+      console.log('blablbalblalbalbla');
+
+      console.log(res);
+
       callback(res);
 
     }).catch(function(err) {

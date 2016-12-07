@@ -46,7 +46,11 @@ function search_for_tracks(keyword, callback) {
 
   console.log('search_for_tracks: ' + keyword);
 
-  spotify.searchTracks(keyword, null, function(err, data) {   
+  var options = {
+    limit: 1
+  }
+
+  spotify.searchTracks(keyword, options, function(err, data) {   
       
     if (err) {
       console.error('Something went wrong', err.message);
@@ -56,6 +60,32 @@ function search_for_tracks(keyword, callback) {
     callback(data.body.tracks.items);
 
   });
+
+}
+
+function search_playlist(keyword, callback) {
+
+  var options = {
+    limit: 5
+  }
+
+
+  spotify.searchPlaylists(keyword, options, function(err, data) {
+
+    if (err) {
+      console.error('Something went wrong', err.message);
+      return;
+    }
+
+    for(i of data.body.playlists.items) {
+      console.log(i);
+      console.log('---------\n\n\n\n');  
+    }
+
+    
+
+  });
+
 
 }
   
@@ -75,10 +105,14 @@ io.on('connection', function(socket) {
 
   	console.log('searching spotify with: ' + JSON.stringify(msg));
 
-  	search_for_tracks(msg.keyword, function(results) {
-  		// send raw results
-  		io.emit('search_spotify_results', results);
-  	});
+    search_playlist(msg.keyword, function(results) {
+
+    });
+
+  	// search_for_tracks(msg.keyword, function(results) {
+  	// 	// send raw results
+  	// 	io.emit('search_spotify_results', results);
+  	// });
 
 
   });
