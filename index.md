@@ -133,6 +133,12 @@ During this session, time will be allocated to answer questions regarding final 
 
 Each individual assignment will be posted on the day of the class (weeks 1, 2, 3).
 
+## Final Project
+
+* [Final Project Evaluation Criteria](./final_project.html)
+
+The final project is a group project that needs to be presented and handed in in the final week of the course (week 7). The topic of the project is open for you to decide but must be signed off by the instrutor not later than two weeks (week 5) before the presentation.
+
 ## Assessment / Grading
 
 Grading for the module consists of (1) three assigments scheduled to be delivered during first part the block and (2) a final group project that will be presentated during the last session of the semester. 
