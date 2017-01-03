@@ -1,0 +1,15 @@
+{
+  "name": "final_presentation_randomizer",
+  "version": "1.0.0",
+  "description": "produces a randomized presentation schedule",
+  "main": "schedule.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthier",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.4",
+    "commander": "^2.9.0"
+  }
+}
